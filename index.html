@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script>
+      (function () {
+        var origDefineProperty = Object.defineProperty;
+        var extensionProps = {
+          isZerion: true,
+          ethereum: true,
+          isMetaMask: true,
+          isRabby: true,
+          isBraveWallet: true,
+          isPhantom: true,
+          isCoinbaseWallet: true,
+          zerionWallet: true,
+          solana: true
+        };
+        Object.defineProperty = function (target, prop, descriptor) {
+          try {
+            if (descriptor && typeof descriptor === 'object' && extensionProps[String(prop)]) {
+              var safeDescriptor = Object.assign({}, descriptor, { configurable: true });
+              return origDefineProperty.call(Object, target, prop, safeDescriptor);
+            }
+            return origDefineProperty.call(Object, target, prop, descriptor);
+          } catch (err) {
+            if (
+              err instanceof TypeError &&
+              /Cannot redefine property/i.test(String(err.message || ''))
+            ) {
+              return target;
+            }
+            throw err;
+          }
+        };
+
+        window.addEventListener(
+          'error',
+          function (event) {
+            var file = String((event && event.filename) || '');
+            var msg = String((event && event.message) || '');
+            if (
+              file.indexOf('chrome-extension://') === 0 ||
+              file.indexOf('moz-extension://') === 0 ||
+              msg.indexOf('isZerion') !== -1 ||
+              msg.indexOf('Cannot redefine property') !== -1
+            ) {
+              event.stopImmediatePropagation();
+              event.preventDefault();
+              return false;
+            }
+          },
+          true
+        );
+
+        window.addEventListener(
+          'unhandledrejection',
+          function (event) {
+            var reason = String((event && event.reason && (event.reason.stack || event.reason.message || event.reason)) || '');
+            if (
+              reason.indexOf('chrome-extension://') !== -1 ||
+              reason.indexOf('moz-extension://') !== -1 ||
+              reason.indexOf('isZerion') !== -1
+            ) {
+              event.stopImmediatePropagation();
+              event.preventDefault();
+              return false;
+            }
+          },
+          true
+        );
+      })();
+    </script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Alexanders Career Strategy | Executive Search &amp; Headhunting</title>
+    <meta
+      name="description"
+      content="Alexanders Career Strategy is an independent executive search and headhunting consultancy serving the United States. Executive Search. Exceptional Talent. Strategic Impact."
+    />
+    <meta property="og:title" content="Alexanders Career Strategy | Executive Search &amp; Headhunting" />
+    <meta
+      property="og:description"
+      content="Independent executive search and headhunting partner connecting US organizations with accomplished executives, senior leaders, and specialist professionals."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Alexanders Career Strategy" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Alexanders Career Strategy | Executive Search &amp; Headhunting" />
+    <meta
+      name="twitter:description"
+      content="Executive Search. Exceptional Talent. Strategic Impact. Independent executive search and specialist recruitment across the United States."
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "ProfessionalService",
+        "name": "Alexanders Career Strategy",
+        "slogan": "Executive Search. Exceptional Talent. Strategic Impact.",
+        "description": "Independent executive search and headhunting consultancy helping organizations across the United States identify and attract exceptional executives, senior leaders, and specialist professionals.",
+        "areaServed": {
+          "@type": "Country",
+          "name": "United States"
+        },
+        "serviceType": [
+          "Executive Search",
+          "Senior Leadership Recruitment",
+          "Specialist and Hard-to-Fill Recruitment",
+          "Confidential Headhunting",
+          "Talent Mapping and Market Intelligence"
+        ]
+      }
+    </script>
+  </head>
+  <body class="bg-[#F7F7F2] text-[#101311] antialiased selection:bg-[#123D2B] selection:text-[#F7F7F2]">
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+

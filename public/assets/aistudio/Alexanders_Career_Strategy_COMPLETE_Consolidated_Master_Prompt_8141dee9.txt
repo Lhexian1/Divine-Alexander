@@ -1,0 +1,1930 @@
+# ALEXANDERS CAREER STRATEGY — COMPLETE CONSOLIDATED WEBSITE BUILD PROMPT
+
+This file consolidates the full original website brief and all later changes in one master prompt. Treat the explicit final decisions in this file as authoritative. Continue the existing website project; preserve working code and integrations.
+
+**Current final decisions:**
+- Brand name: Alexanders Career Strategy.
+- Positioning: independent, premium executive search and headhunting firm serving the United States market; audience includes employers and candidates.
+- Tagline: “Executive Search. Exceptional Talent. Strategic Impact.”
+- Final colours: forest green `#123D2B`, deep green `#0B2A1E`, rich black `#101311`, gold `#C6A15B`, light gold `#E0C98B`, warm white `#F7F7F2`.
+- Meet Our Team: five people; supplied portraits must display plainly, without blur and without click-to-reveal behavior.
+- Final team emails: Alexander Divine `alexander.divine.hr@gmail.com`; Paul Alexander `paulpatog@gmail.com`; Piers Fisher `pier.fisher.hr@gmail.com`. Do not display superseded alternate addresses.
+- Supplied profiles/social links: Alexander's X and Facebook; Fred Geerken's LinkedIn. See Section 22 for exact URLs and all team instructions.
+- Dynamic content, careers page, job listings, official application links, supplied reference images, premium contact icons, secure forms, and Netlify-compatible deployment are all part of the same project.
+
+If a historical section conflicts with this current decision summary or Sections 22 and 24–31, follow the newer authoritative direction. Keep all genuine business facts accurate. Where a fact or integration is not configured, mark it for owner input instead of inventing it.
+
+---
+
+# BUILD A PREMIUM INDEPENDENT EXECUTIVE SEARCH & HEADHUNTING WEBSITE
+
+## 1. PROJECT OVERVIEW
+
+Act as a senior web designer, brand strategist, UX/UI designer, conversion specialist, and full-stack developer.
+
+Build a complete, professional, production-ready website for an independent executive search and headhunting consultancy serving the United States market.
+
+The website should look and feel like a sophisticated executive search firm that works directly with business owners, CEOs, board members, executives, HR leaders, hiring managers, and high-caliber professionals.
+
+The design direction should take inspiration from:
+
+1. HCTec — https://hctec.com/lp-healthcare-it-staffing/
+2. Robert Half — https://www.roberthalf.com/us/en
+
+Study their approaches to professional presentation, navigation, service positioning, employer and candidate pathways, industry specialization, and conversion-focused design.
+
+Do not copy either company's website, branding, logo, text, or proprietary assets. Create an original visual identity that combines the clarity of a leading staffing firm with the discretion, sophistication, and personalized service of an independent executive search consultancy.
+
+**Important:** Build the actual website, not merely a concept, mockup, or design proposal. Implement the pages, navigation, responsive layouts, working calls to action, reusable components, and properly configured form workflows.
+
+Use the existing project environment where available and ensure compatibility with Netlify deployment.
+
+## 2. BRAND IDENTITY
+
+### Company name
+
+Use the company name **Alexanders Career Strategy** throughout the website. Centralize the brand name in a configuration file so it can be changed throughout the website in one place.
+
+### Brand positioning
+
+Position the company as an independent, relationship-led executive search and headhunting partner that helps organizations find exceptional people for important roles.
+
+The company should not appear to be a job board, a generic résumé collection service, or a high-volume temporary staffing agency.
+
+Its defining characteristics should be:
+
+- Independent and personalized
+- Research-driven and commercially aware
+- Discreet and relationship-oriented
+- Specialized in senior and hard-to-fill positions
+- Professional, responsive, and accountable
+- Capable of supporting clients across multiple industries in the United States
+
+### Brand promise
+
+"Executive Search. Exceptional Talent. Strategic Impact."
+
+### Suggested tagline
+
+"Executive Search. Exceptional Talent. Strategic Impact."
+
+Keep the tagline editable.
+
+### Target audiences
+
+Build the website for two equally important audiences.
+
+**Employers and hiring organizations**
+
+- CEOs and founders
+- Board members and business owners
+- Chief human resources officers
+- HR directors and talent acquisition leaders
+- Department heads and hiring managers
+- Healthcare and pharmaceutical executives
+- Procurement, supply chain, and commercial leaders
+
+**Candidates and professionals**
+
+- C-suite executives
+- Vice presidents and senior directors
+- Experienced functional leaders
+- Specialized professionals
+- Passive candidates who are not actively applying for jobs
+- Professionals considering confidential career transitions
+
+## 3. VISUAL DESIGN SYSTEM
+
+Create a premium corporate visual identity built around forest green, black, gold, and warm neutrals.
+
+### Final colour palette — authoritative
+- Primary forest green: `#123D2B`
+- Deep green: `#0B2A1E`
+- Rich black: `#101311`
+- Gold accent: `#C6A15B`
+- Light gold: `#E0C98B`
+- Warm white: `#F7F7F2`
+- Light neutral: `#F1F3F0`
+- Neutral border: `#D9DED8`
+- Charcoal: `#26312B`
+- Muted body text: `#555F58`
+
+Use forest green as the main brand colour; use black for deliberate contrast and selected dark backgrounds; use gold sparingly for refined highlights, icons, fine borders, small decorative lines, and selected CTAs. Use warm white/light-neutral backgrounds for readability. Do not make every section dark and do not fill the site with gold. Ensure all text and controls meet accessible contrast requirements.
+
+The green, black, and gold palette supersedes all older instructions for navy, blue, or navy/white/gold branding. Define the palette as reusable CSS variables/design tokens and apply it consistently across the complete website, including legacy pages, dynamic components, job details, the Careers page, forms, modals, icons, hover/focus states, header, footer, mobile navigation, and error/success messages.
+
+### Typography
+Use a refined, readable sans-serif for body text, navigation, forms, and buttons. Pair it with an elegant editorial serif for selected headlines if appropriate. Prioritize readability, consistent scale, generous whitespace, and clear hierarchy.
+
+### Photography
+Use premium, authentic-looking imagery showing senior business leaders, executive meetings, professional one-to-one conversations, industry professionals, and realistic collaborative workplaces. Use properly licensed or otherwise appropriately usable photographs. Do not present stock people as company employees, clients, or endorsers. Do not generate or substitute portraits for named team members.
+
+### Logo
+Preserve the existing logo unless the owner supplies a replacement. A clean typographic wordmark may use forest green, black, and a restrained gold accent. An optional understated monogram may represent connection, discernment, leadership, or professional opportunity. Do not distort an existing logo or imitate another recruitment company's mark. Make the brand legible on both light and dark backgrounds and on mobile.
+
+## 4. WEBSITE NAVIGATION AND ARCHITECTURE
+
+Build the following pages:
+
+1. Home
+2. For Employers
+3. For Candidates
+4. Our Expertise
+5. Our Approach
+6. About Us
+7. Insights
+8. Contact
+9. Privacy Policy
+10. Terms of Use
+
+Use a clean, sticky desktop navigation bar with the logo on the left, navigation in the middle, and a prominent "Discuss a Hiring Need" CTA on the right.
+
+Make the employer and candidate journeys obvious.
+
+On mobile, provide an accessible hamburger menu, intuitive navigation, touch-friendly controls, and clearly visible CTAs.
+
+## 5. HOMEPAGE
+
+The homepage must communicate the company's value within the first few seconds and guide employers and candidates toward the appropriate next step.
+
+### Section 1: Hero
+
+Use a sophisticated split-screen or editorial layout with a strong headline, concise supporting text, a premium business photograph, and two distinct calls to action.
+
+Headline:
+
+"Executive Search. Exceptional Talent. Strategic Impact."
+
+Supporting copy:
+
+"Alexanders Career Strategy helps organizations identify and attract exceptional executives, senior leaders, and specialist professionals. Through targeted research, direct outreach, and a relationship-led approach, we connect employers with candidates whose experience and capabilities align with their strategic objectives."
+
+Primary CTA: "Discuss a Hiring Need"
+
+Secondary CTA: "Explore Our Expertise"
+
+Add a subtle candidate link:
+
+"Exploring your next career opportunity? Connect with us."
+
+The hero must feel premium, uncluttered, and confident. Avoid exaggerated claims or lengthy paragraphs.
+
+### Section 2: Trust and differentiation
+
+Headline:
+
+"A More Personal Approach to Executive Search."
+
+Explain how an independent headhunter can provide focused attention, customized research, direct access to relevant professionals, and close communication throughout a search.
+
+Create four understated value propositions:
+
+**Focused Search**
+
+Each engagement begins with understanding the specific role, business objectives, and qualities required for success.
+
+**Targeted Talent Research**
+
+Identify relevant talent pools and potential candidates instead of relying exclusively on incoming applications.
+
+**Discreet Engagement**
+
+Approach suitable professionals thoughtfully and respect confidentiality throughout the process.
+
+**Personal Partnership**
+
+Maintain clear communication and a tailored search strategy aligned with the client's hiring objectives.
+
+Do not invent statistics, credentials, client logos, or testimonials.
+
+### Section 3: Employer services
+
+Headline:
+
+"Talent Solutions for the Roles That Matter Most."
+
+Build six polished service blocks.
+
+1. Executive Search
+2. Senior Leadership Recruitment
+3. Specialist and Hard-to-Fill Recruitment
+4. Confidential Headhunting
+5. Permanent Professional Recruitment
+6. Talent Mapping and Research
+
+For each service, explain:
+
+- Who it serves
+- When it is useful
+- What the service involves
+- How the employer can start a conversation
+
+Add links to the relevant service details or employer enquiry form.
+
+### Section 4: Industry expertise
+
+Headline:
+
+"Specialized Search. Cross-Industry Perspective."
+
+Build a premium grid of six industry categories:
+
+**Healthcare and Healthcare Technology**
+
+Healthcare executives, clinical leadership, hospital operations, healthcare IT, and administrative leadership.
+
+**Pharmaceuticals and Biotechnology**
+
+Medical affairs, regulatory affairs, clinical development, research, quality, and commercial leadership.
+
+**Medical Devices and Life Sciences**
+
+Regulatory leadership, quality assurance, product development, diagnostics, and commercial functions.
+
+**Procurement and Supply Chain**
+
+Chief procurement officers, vice presidents of procurement, strategic sourcing, supply chain leadership, and operations.
+
+**Technology and Digital Leadership**
+
+Technology executives, CIOs, CTOs, information security leaders, product leadership, and digital transformation specialists.
+
+**Corporate and Commercial Leadership**
+
+CEOs, COOs, CFOs, HR leaders, finance executives, business development, sales leadership, and other senior corporate functions.
+
+Present these as target specializations rather than a claim that the firm has completed placements in each field.
+
+Keep the architecture flexible so additional industries can be introduced without redesigning the website.
+
+### Section 5: The search process
+
+Headline:
+
+"A Disciplined Approach to Finding the Right People."
+
+Create a four-stage visual process.
+
+**01 — Discover**
+
+Understand the role, organizational context, leadership expectations, culture, and desired business outcomes.
+
+**02 — Research**
+
+Map relevant talent pools, identify target organizations, and develop a focused candidate search strategy.
+
+**03 — Engage**
+
+Approach prospective candidates, assess their interest and suitability, and coordinate the evaluation process.
+
+**04 — Deliver**
+
+Present relevant candidates, support interviews and offer discussions, and maintain communication through agreed next steps.
+
+Use an elegant timeline on desktop and a vertical timeline on mobile.
+
+### Section 6: Candidate engagement
+
+Headline:
+
+"Your Next Opportunity Deserves a Thoughtful Conversation."
+
+Supporting copy:
+
+"Great career opportunities do not always begin with a job application. We build professional relationships and connect with experienced individuals when their expertise and ambitions may align with a relevant opportunity."
+
+Include three features:
+
+- Confidential career conversations
+- Relevant opportunities aligned with professional experience
+- A straightforward candidate introduction process
+
+CTA: "Introduce Yourself"
+
+Explain that candidate registration does not guarantee a placement, interview, or specific job opportunity.
+
+### Section 7: Final CTA
+
+Headline:
+
+"Good Search Starts With the Right Conversation."
+
+Supporting copy:
+
+"Whether you need to strengthen your leadership team or are considering your next professional move, let's begin with a conversation."
+
+Buttons:
+
+- Discuss a Hiring Need
+- Connect as a Candidate
+
+### Section 8: Footer
+
+Include:
+
+- Company logo and editable brand statement
+- Employer services
+- Candidate resources
+- Industry expertise
+- About the firm
+- Insights
+- Contact details
+- LinkedIn profile, when supplied
+- Privacy Policy
+- Terms of Use
+- Cookie preferences where applicable
+
+Do not invent contact details or social media profiles.
+
+## 6. FOR EMPLOYERS PAGE
+
+Create a dedicated conversion-focused page for hiring organizations.
+
+Hero headline:
+
+"Find the People Who Move Your Business Forward."
+
+Supporting copy:
+
+"We partner with organizations to identify, engage, and evaluate professionals for critical leadership and specialist positions through focused search and personalized recruitment."
+
+Include the following sections.
+
+### When to work with an independent headhunter
+
+Explain the value of targeted search when an organization:
+
+- Needs to fill a senior leadership role
+- Cannot find suitable candidates through conventional advertising
+- Requires specialized industry expertise
+- Wants to reach professionals who are not actively job hunting
+- Needs discretion around a sensitive appointment
+- Wants dedicated attention for an important hiring decision
+
+### Services
+
+Explain executive search, retained search, contingency recruitment, specialist permanent placements, confidential search, and talent mapping.
+
+Describe service models accurately. Fees, guarantees, replacement provisions, payment terms, and deliverables must be agreed with the client rather than invented.
+
+### Employer enquiry form
+
+Build a clean, professional form containing:
+
+- Full name
+- Business email
+- Company name
+- Job title
+- Industry
+- Position to be filled
+- Seniority level
+- Number of positions, optional
+- Hiring timeline
+- Preferred engagement model, optional
+- Additional information
+- Required acknowledgement of the applicable privacy notice
+
+Use accessible field labels, inline validation, helpful error messages, loading indicators, and a genuine submission confirmation.
+
+The form must submit through a real configured workflow.
+
+## 7. FOR CANDIDATES PAGE
+
+Create a welcoming but professional page for executives, senior leaders, and specialized professionals.
+
+Hero headline:
+
+"Your Experience. The Right Opportunity."
+
+Supporting copy:
+
+"We build relationships with talented professionals and help connect relevant experience with opportunities that align with organizational needs and individual career goals."
+
+Include:
+
+- How the headhunting process works
+- What candidates can expect
+- Confidentiality and personal data handling
+- Relevant industries and professional functions
+- Candidate registration
+- Frequently asked questions
+
+### Candidate registration form
+
+Fields:
+
+- Full name
+- Email address
+- Phone number, optional
+- Current job title
+- Current or most recent employer, optional
+- Professional function
+- Industry specialization
+- Target positions
+- Preferred US locations or remote preference
+- LinkedIn profile URL, optional
+- CV upload, optional
+- Career interests, optional
+- Privacy notice acknowledgement
+
+Support PDF and DOCX CV files, with configurable file-size limits and server-side validation.
+
+Securely store submitted files using an appropriately configured private storage solution. Do not expose CVs through public URLs or make candidate documents accessible to unauthorized users.
+
+Provide a clear privacy notice describing the intended use of candidate information, retention, sharing, and applicable rights.
+
+Do not promise absolute confidentiality when the firm may need to share candidate information with prospective employers following appropriate notice and authorization.
+
+## 8. OUR EXPERTISE PAGE
+
+Create an editorial industry overview with dedicated sections for each target industry.
+
+For every industry or specialist discipline, include:
+
+- Common leadership and recruitment challenges
+- Illustrative target functions and roles
+- How a targeted search may help
+- A CTA to discuss a search
+
+In addition to the cross-industry and senior role examples below, create eight clear “Explore Our Expertise” discipline cards inspired by the category structure supplied by the owner. Use original Alexanders Career Strategy copy:
+
+**Accounting & Finance** — “Partner with us to identify accounting and finance leaders who can support financial planning, reporting, controls, transformation, and commercial decision-making.”
+
+**Risk** — “Identify risk professionals and leaders who help organizations understand uncertainty, strengthen controls, and support informed decisions.”
+
+**Legal & Compliance** — “Connect with legal and compliance professionals who help organizations meet obligations, manage risk, and operate responsibly.”
+
+**Technology** — “Find technology leaders and specialist professionals across software, data, cybersecurity, infrastructure, engineering, and digital transformation.”
+
+**Operations** — “Identify operations leaders who can improve processes, service delivery, efficiency, quality, and organizational performance.”
+
+**Human Resources** — “Connect with HR and people leaders across talent strategy, organizational development, employee relations, rewards, and workforce planning.”
+
+**Sales & Marketing** — “Find commercial leaders and specialists who support market development, customer engagement, revenue strategy, brand growth, and business development.”
+
+**Engineering** — “Identify engineering and technical leaders across product development, industrial operations, manufacturing, quality, and project delivery.”
+
+Treat these as executive-search and specialist-recruitment expertise categories, not a claim that every function currently has an open vacancy. Keep each card's summary and CTA editable.
+
+Include role examples such as:
+
+**Executive Leadership**
+
+CEO, COO, CFO, Chief Human Resources Officer, Chief Commercial Officer, Chief Strategy Officer, and other senior leadership roles.
+
+**Healthcare**
+
+Chief Medical Officer, Chief Nursing Officer, Hospital Operations Director, Healthcare IT Director, Clinical Operations Director, and Healthcare Administration Executive.
+
+**Pharmaceuticals and Biotechnology**
+
+VP of Clinical Development, Medical Affairs Director, Regulatory Affairs Director, Clinical Research Director, and Quality Assurance Director.
+
+**Medical Devices and Life Sciences**
+
+VP of Regulatory Affairs, Director of Quality, Commercial Director, Product Development Director, and Diagnostics Leadership.
+
+**Technology**
+
+CIO, CTO, CISO, VP of Engineering, Director of Data, Product Leadership, and Digital Transformation Executive.
+
+**Procurement and Supply Chain**
+
+Chief Procurement Officer, VP of Procurement, Procurement Director, Strategic Sourcing Director, and Supply Chain Executive.
+
+**Finance, HR, and Commercial**
+
+CFO, VP of Finance, HR Director, VP of Sales, Business Development Director, and Revenue Leadership.
+
+These are illustrative search categories, not current job vacancies.
+
+## 9. OUR APPROACH PAGE
+
+Explain the firm's methodology in clear, credible language.
+
+Build sections for:
+
+1. Role discovery and stakeholder alignment
+2. Market research and talent mapping
+3. Target candidate identification
+4. Direct professional outreach
+5. Candidate conversations and screening
+6. Shortlist development
+7. Interview coordination
+8. Offer-stage support and follow-up
+
+Explain how communication, assessment criteria, reporting, timelines, and deliverables are established with the client.
+
+Clearly distinguish between search activities that are part of the agreed engagement and optional services.
+
+Do not guarantee that every search will result in a hire or that every identified candidate will be available.
+
+## 10. ABOUT US PAGE
+
+Present Alexanders Career Strategy as an independent executive search consultancy built around focused research, professional integrity, personalized attention, and long-term relationships.
+
+Include editable sections for:
+
+- Company story
+- Founder biography
+- Search philosophy
+- Industry focus
+- Geographic coverage
+- Professional experience
+- Contact details
+
+Until verified founder information is available, use an unpublished editable placeholder rather than fabricated biographical details.
+
+Do not invent client relationships, awards, credentials, years of experience, or placement achievements.
+
+## 11. INSIGHTS PAGE
+
+Build an editorial content hub with categories such as:
+
+- Executive Search and Hiring
+- Leadership and Succession Planning
+- Healthcare Talent
+- Pharmaceutical Leadership
+- Technology Leadership
+- Procurement and Supply Chain
+- Career Strategy
+- Talent Market Insights
+
+Create a reusable article template with headline, publication date, author, reading time, featured image, article body, related articles, and CTA.
+
+Allow content to be maintained through a CMS-ready structure or editable content files.
+
+Clearly label draft content until reviewed and approved. Do not fabricate research, statistics, quotations, or expert endorsements.
+
+## 12. CONTACT PAGE
+
+Create a simple, premium contact experience with two clearly separated paths.
+
+**For employers**
+
+"Tell us about the position you're looking to fill."
+
+**For candidates**
+
+"Introduce yourself and your professional interests."
+
+Include a general contact form and the relevant business email and contact information once supplied.
+
+The employer pathway should lead to the hiring enquiry form. The candidate pathway should lead to candidate registration.
+
+Implement working form submissions, accessible validation, spam protection, and real success and error states.
+
+## 13. FUNCTIONAL AND TECHNICAL REQUIREMENTS
+
+Use a maintainable, modern web stack compatible with Netlify.
+
+Preferred stack:
+
+- React
+- TypeScript
+- A modern lightweight styling system
+- Reusable page and section components
+- Netlify deployment configuration
+- Netlify Forms or serverless functions where appropriate
+- A private file storage solution if CV uploads are enabled
+
+Adapt to the existing project if a working framework is already installed.
+
+Implement:
+
+- Fully responsive layouts
+- Sticky navigation and functional mobile menus
+- Working internal links and CTAs
+- Real form submission workflows
+- Server-side validation where applicable
+- Secure file upload validation
+- Spam protection
+- Accessible keyboard navigation and focus states
+- Semantic HTML and appropriate ARIA attributes
+- Optimized images and lazy loading
+- SEO metadata for every page
+- Open Graph metadata
+- XML sitemap
+- robots.txt
+- Custom 404 page
+- Appropriate error and loading states
+- Environment-based configuration
+- A maintainable folder structure
+- A README with setup and deployment instructions
+
+Keep API keys, SMTP credentials, private tokens, and storage credentials out of client-side code.
+
+Do not display a success message unless the submission has actually succeeded.
+
+If email delivery or CV storage requires additional configuration, clearly document the required steps and use a safe fallback rather than pretending the integration works.
+
+## 14. SEO AND US MARKET POSITIONING
+
+Optimize the site for relevant United States search intent, including:
+
+- Independent executive search firm
+- Executive search consultants
+- Executive headhunter
+- Senior leadership recruitment
+- C-suite executive search
+- Healthcare executive search
+- Pharmaceutical executive recruitment
+- Biotechnology executive search
+- Technology executive recruitment
+- Procurement executive search
+- Specialist professional recruitment
+- Confidential executive search
+
+Use natural language, descriptive page titles, unique meta descriptions, clean URLs, a clear heading hierarchy, internal links, and relevant structured data.
+
+Do not keyword-stuff or create fake office addresses.
+
+Do not claim nationwide office coverage, guaranteed candidate availability, or established client relationships unless verified.
+
+Structure the website so additional location-specific pages can be added when the firm has a legitimate geographic focus.
+
+## 15. CONVERSION OPTIMIZATION
+
+The site must serve both employers and candidates without confusing their journeys.
+
+Employer CTAs:
+
+- Discuss a Hiring Need
+- Request a Search Consultation
+- Explore Our Services
+
+Candidate CTAs:
+
+- Introduce Yourself
+- Submit Your CV
+- Explore Candidate Resources
+
+Use consistent button styles, concise forms, clear privacy explanations, and obvious next steps.
+
+Avoid intrusive popups, excessive animations, fake urgency, fabricated testimonials, and unsupported success claims.
+
+Use subtle hover states, restrained transitions, and accessible motion settings.
+
+## 16. RESPONSIVE DESIGN AND ACCESSIBILITY
+
+Ensure that the website works properly on:
+
+- Desktop computers
+- Laptops
+- Tablets
+- Mobile phones
+
+Test the navigation, typography, hero composition, forms, buttons, cards, images, and footer at different screen sizes.
+
+Maintain sufficient contrast, visible focus indicators, keyboard accessibility, readable font sizes, meaningful alt text, and appropriately labeled form fields.
+
+Respect reduced-motion preferences and avoid relying on color alone to communicate information.
+
+## 17. FINAL IMPLEMENTATION AND TESTING
+
+Before declaring the website ready:
+
+1. Implement all required pages.
+2. Test every navigation link.
+3. Test all CTA destinations.
+4. Verify form submission in the actual deployment environment.
+5. Verify email delivery or document any remaining integration steps.
+6. Check responsive behavior across screen sizes.
+7. Review accessibility and color contrast.
+8. Verify SEO metadata and technical configuration.
+9. Check for broken links, missing images, and console errors.
+10. Remove unused code and unnecessary dependencies.
+11. Ensure no fictitious credentials, clients, reviews, or statistics appear.
+12. Ensure that candidate information and CVs are protected.
+13. Provide clear deployment and customization instructions.
+
+Do not stop after generating a homepage. Complete the requested website and test the implementation.
+
+## 18. CENTRALIZED BRAND CONFIGURATION
+
+Create a central configuration file for the following details:
+
+- Company name: Alexanders Career Strategy
+- Tagline: Executive Search. Specialized Talent. Meaningful Connections.
+- Primary market: United States
+- Brand colors: forest green, black, and gold
+- Business email: [BUSINESS EMAIL — supply verified address before launch]
+- Business phone: [PHONE NUMBER — supply verified number before launch]
+- Founder name: [FOUNDER NAME — supply verified name and biography before publication]
+- LinkedIn company URL: [LINKEDIN URL — supply verified URL before launch]
+- Primary specialties: Cross-industry executive search
+- Primary audiences: Employers and candidates
+- Privacy policy: [PRIVACY POLICY URL — configure before launch]
+- Terms of use: [TERMS URL — configure before launch]
+
+Ensure that changing the configuration updates the appropriate brand elements throughout the site.
+
+Do not publish unresolved placeholders on the live website. The company name is Alexanders Career Strategy.
+
+## FINAL CREATIVE DIRECTION
+
+Build a website that feels like a premium independent executive search firm with the professionalism of a major recruitment brand and the personalized attention of a dedicated headhunter.
+
+The visual experience should be elegant, restrained, confident, and conversion-focused.
+
+The messaging should communicate trust, discretion, targeted search, cross-industry expertise, and meaningful professional relationships.
+
+The website should be designed for the United States market, serve employers and candidates equally well, and allow the business to expand into additional industries and geographic markets over time.
+
+Implement the website in the available project, run the appropriate checks, and report honestly what is complete and what still requires configuration before launch.
+
+# 19. COMPLETE WEBSITE COPY — IMPLEMENT THESE ARTICLES IN THEIR RESPECTIVE SECTIONS
+
+## Mandatory content implementation instructions
+
+Use the copy below directly in the corresponding website sections. This section supplements and expands the earlier page requirements; it does not replace the technical, security, responsive design, SEO, or deployment requirements.
+
+- Use finished copy rather than lorem ipsum, placeholder paragraphs, or empty sections.
+- Keep the writing professional, clear, confident, and credible.
+- Do not invent company history, years of experience, completed placements, client names, testimonials, awards, certifications, placement statistics, or guarantees.
+- All article pages must display full article bodies, not just titles and excerpts.
+- The Privacy Policy and Terms of Use below are content frameworks and must be reviewed against the firm's actual legal entity, providers, data practices, and applicable law before publication.
+- Do not publish unresolved placeholders or unverified contact details on the live website.
+
+## 19.1 HOMEPAGE — ADDITIONAL COPY
+
+### Homepage introduction
+**Heading:** Finding the Leaders Who Move Business Forward
+
+The right leadership appointment can influence an organization's direction, strengthen its culture, and support long-term growth. Finding the right individual requires more than reviewing applications. It requires a clear understanding of the role, the business, the industry, and the qualities needed for success.
+
+Alexanders Career Strategy takes a focused approach to identifying leadership talent. We work to understand hiring priorities, research relevant talent markets, engage suitable professionals, and support employers throughout the search process.
+
+Our objective is to help organizations make informed recruitment decisions and connect with people who can contribute meaningful value.
+
+### Featured expertise introduction
+**Heading:** Our Expertise
+
+We specialize in executive search and targeted recruitment for organizations seeking accomplished leaders and highly qualified professionals. Our services are designed to address important hiring needs through focused research, professional candidate engagement, and a structured search process.
+
+**Executive Search & Headhunting:** We identify and engage qualified executives and senior professionals through targeted research and direct outreach. Our approach helps employers reach relevant candidates who may not be actively searching for new opportunities.
+
+**C-Suite & Board Recruitment:** We support searches for senior executives and board-level professionals whose leadership experience, strategic judgment, and professional capabilities align with organizational priorities.
+
+**Senior Management Recruitment:** We help employers identify vice presidents, directors, general managers, and department heads who can lead teams, manage operations, and contribute to business objectives.
+
+**Confidential Executive Search:** We support discreet recruitment assignments involving sensitive leadership transitions, replacement appointments, succession planning, and other confidential hiring requirements.
+
+**Talent Mapping & Market Intelligence:** We research relevant talent markets, identify potential candidates, and help employers understand the leadership talent available within their industries and target markets.
+
+**Specialist Recruitment:** We conduct targeted searches for specialized professionals and hard-to-fill positions where relevant experience, technical knowledge, and role-specific capabilities are essential.
+
+### Industries introduction
+**Heading:** Industry Knowledge. Targeted Talent.
+
+Leadership requirements differ across industries. Organizations need professionals who understand their operating environments, regulatory considerations, customers, technologies, and commercial priorities.
+
+Alexanders Career Strategy supports recruitment across a range of industries, including healthcare, pharmaceuticals, financial services, technology, manufacturing, consumer goods, energy, logistics, and professional services.
+
+Our search approach considers the specific requirements of each position and the industry knowledge needed to perform effectively.
+
+### Search process introduction
+**Heading:** A Focused Approach to Executive Search
+
+Successful executive recruitment begins with understanding the opportunity. We take a structured approach to role definition, talent research, candidate engagement, evaluation, and shortlisting. Each stage is designed to support a clear and informed hiring process.
+
+From the initial consultation through candidate presentation and appointment support, our focus remains on role alignment, professional communication, and the needs of the client.
+
+### Employer CTA
+**Heading:** Looking for Your Next Exceptional Leader?
+
+Whether you are building a leadership team, replacing a key executive, expanding into a new market, or searching for a specialist professional, Alexanders Career Strategy can help you define your requirements and explore a targeted search approach.
+
+Tell us about the position, your organization, and the experience you need. Our team will review your enquiry and discuss appropriate next steps.
+
+**Button:** Discuss Your Hiring Needs
+
+### Candidate CTA
+**Heading:** Your Next Opportunity Starts with a Conversation
+
+We welcome CV submissions from executives, senior professionals, and specialists interested in being considered for relevant opportunities. Share your professional background, areas of expertise, and career interests so your information can be reviewed for suitable search assignments.
+
+Submitting your CV does not guarantee an interview, placement, or immediate opportunity. Candidate information will be handled in accordance with the website's privacy notice and applicable requirements.
+
+**Button:** Submit Your CV
+
+## 19.2 ABOUT US PAGE — FULL COPY
+
+### Who We Are
+Alexanders Career Strategy is an executive search and recruitment firm focused on identifying and attracting qualified leadership talent and specialist professionals.
+
+We work with organizations seeking individuals who can lead teams, strengthen business functions, guide strategic decisions, and contribute to organizational performance. Our approach combines an understanding of hiring requirements with targeted talent research and professional candidate engagement.
+
+Executive recruitment requires careful consideration of more than job titles and qualifications. It involves understanding responsibilities, leadership expectations, organizational culture, industry knowledge, and the experience needed to perform effectively in a particular role.
+
+We aim to make this process more focused by helping employers clarify their requirements and identify candidates whose professional backgrounds align with their needs.
+
+### Our Mission
+Our mission is to connect organizations with capable professionals who can contribute to effective leadership, business performance, and long-term organizational development.
+
+We seek to support better hiring decisions through focused search strategies, thoughtful candidate evaluation, and professional relationships with employers and candidates.
+
+### Our Vision
+Our vision is to be a trusted executive search partner recognized for professionalism, a focused approach to talent identification, and a commitment to helping organizations find the people they need to move forward.
+
+### Our Approach
+Every search begins with understanding the role and the organization behind it. We consider the responsibilities of the position, the experience required, the leadership capabilities expected, and the broader business objectives the successful candidate will support.
+
+We then use a targeted approach to identify relevant talent, engage potential candidates, assess professional alignment, and support the selection process.
+
+Our approach is designed to be clear, responsive, and tailored to the requirements of each assignment.
+
+### Our Values
+**Professionalism:** We approach recruitment assignments with discretion, clear communication, and respect for the time and interests of employers and candidates.
+
+**Integrity:** We aim to communicate accurately, handle information responsibly, and maintain appropriate expectations throughout the recruitment process.
+
+**Quality:** We focus on the relevance of candidate experience, capabilities, and role alignment rather than simply the volume of applications received.
+
+**Confidentiality:** We recognize that executive searches and career discussions can involve sensitive information. Candidate and client information should be handled through appropriate privacy and access controls.
+
+**Partnership:** We seek to understand each client's hiring objectives and build professional relationships that support informed recruitment decisions.
+
+### About CTA
+**Heading:** Let's Discuss Your Leadership Requirements
+
+If your organization is preparing for a leadership appointment or a specialized recruitment assignment, we invite you to tell us about your requirements. We will review your enquiry and discuss how a focused search may support your hiring objectives.
+
+**Button:** Contact Our Team
+
+Do not invent founder history or biography. If founder details have not been provided, omit that subsection from the published site until verified information is supplied.
+
+## 19.3 OUR EXPERTISE PAGE — FULL COPY
+
+### Introduction
+Alexanders Career Strategy specializes in executive search, headhunting, senior management recruitment, and targeted talent identification.
+
+We support organizations looking for professionals whose experience, leadership capabilities, technical knowledge, and industry understanding match the demands of important positions.
+
+Our services are designed to help employers define recruitment priorities, identify relevant talent, engage suitable candidates, and move through the selection process with greater focus.
+
+From C-suite appointments to specialist and hard-to-fill roles, our approach is shaped by the requirements of each assignment.
+
+### Executive Search & Headhunting
+Executive search focuses on identifying and engaging professionals whose backgrounds match a specific leadership requirement.
+
+Rather than relying exclusively on incoming applications, targeted headhunting involves researching relevant talent markets, identifying potential candidates, and approaching individuals whose experience may fit the role.
+
+Alexanders Career Strategy uses a focused search approach to help employers reach suitable professionals, including individuals who may not be actively looking for a new position.
+
+### C-Suite & Executive Recruitment
+Senior executive appointments can influence organizational strategy, financial performance, operational effectiveness, innovation, and company culture.
+
+We support searches for positions such as Chief Executive Officer, Chief Financial Officer, Chief Operating Officer, Chief Technology Officer, Chief Information Officer, Chief Human Resources Officer, Chief Marketing Officer, Chief Medical Officer, and other executive leadership roles.
+
+Each assignment should reflect the organization's structure, strategic objectives, leadership expectations, and required professional experience.
+
+### Board & Non-Executive Director Search
+Board appointments require careful consideration of governance experience, strategic judgment, industry knowledge, independence, and the ability to contribute to oversight and organizational direction.
+
+We support the identification of board-level professionals and non-executive directors whose backgrounds align with the organization's governance needs and board composition requirements.
+
+### Senior Management Recruitment
+Experienced managers and directors help translate business strategy into operational performance.
+
+We support recruitment for vice presidents, executive directors, managing directors, general managers, functional directors, and senior department heads.
+
+Search criteria can include team leadership, budget responsibility, operational experience, commercial performance, transformation, and relevant industry expertise.
+
+### Specialist & Hard-to-Fill Recruitment
+Some positions require a combination of technical expertise, industry experience, professional qualifications, or rare capabilities.
+
+We use targeted research and candidate outreach to identify professionals whose backgrounds meet the specific requirements of these assignments.
+
+The search strategy is adapted to the role, the available talent market, and the employer's priorities.
+
+### Confidential Executive Search & Succession
+Confidential searches may be necessary for leadership transitions, sensitive replacement appointments, business restructuring, succession planning, or other situations requiring discretion.
+
+We approach these assignments with careful communication and appropriate information handling. Search details are shared only as authorized and necessary for the recruitment process.
+
+### Talent Mapping & Market Intelligence
+Talent mapping helps organizations understand the professional landscape surrounding a particular role, function, industry, or geography.
+
+This work may include identifying relevant employers, researching leadership structures, mapping potential candidate pools, and examining the experience and capabilities available in the market.
+
+The resulting insights can support recruitment planning and help employers develop a more informed search strategy.
+
+### Leadership Assessment & Candidate Evaluation
+Candidate evaluation should consider more than a job title or a list of qualifications.
+
+We help structure candidate reviews around relevant experience, leadership responsibilities, professional achievements, technical capabilities, and alignment with the role's stated requirements.
+
+Where appropriate, the process may also consider communication, strategic thinking, stakeholder management, and the candidate's interest in the opportunity.
+
+Assessments and reference checks should be conducted with suitable authorization and in accordance with applicable requirements.
+
+### Industry-Specific Executive Search
+Each industry has its own operating environment, technical demands, and leadership priorities.
+
+We tailor search criteria to the requirements of the sector and position, considering factors such as regulatory knowledge, commercial experience, operational complexity, and specialist expertise.
+
+Our industry coverage includes healthcare, pharmaceuticals, financial services, technology, manufacturing, energy, consumer goods, logistics, and professional services.
+
+### International & Cross-Border Executive Search
+Organizations operating across markets may require executives with international experience, regional knowledge, cross-cultural leadership skills, or experience managing distributed operations.
+
+We support searches that consider the relevant market, location, role requirements, and experience needed for international or cross-border appointments.
+
+International recruitment assignments must take account of applicable employment, immigration, data protection, and other relevant requirements.
+
+### Expertise CTA
+**Heading:** Let's Define Your Search
+
+Tell us about the position you need to fill, the experience required, and the business objectives the successful candidate will support. We will review your enquiry and discuss an appropriate search approach.
+
+**Button:** Start an Executive Search
+
+## 19.4 INDUSTRIES WE SERVE PAGE — FULL COPY
+
+### Introduction
+Effective executive recruitment requires an understanding of the environment in which a leader will operate.
+
+Alexanders Career Strategy supports searches across multiple industries, adapting candidate requirements to the responsibilities of each role and the needs of the organization.
+
+Our industry coverage is designed to help employers identify leadership talent and specialist professionals with relevant experience, functional expertise, and an understanding of the challenges facing their sectors.
+
+### Healthcare & Medical Services
+Healthcare organizations rely on experienced leaders to support clinical services, operational performance, quality, financial management, and organizational development.
+
+We support searches for suitable healthcare executives, medical leadership professionals, hospital administrators, operations directors, and other senior professionals whose experience aligns with the position.
+
+Potential functional areas include healthcare operations, clinical administration, medical services management, quality, and service delivery.
+
+### Pharmaceuticals & Biotechnology
+Pharmaceutical and biotechnology organizations operate in environments where scientific knowledge, regulatory awareness, product development, manufacturing quality, and commercial execution can be critical.
+
+We support searches for relevant leaders across pharmaceutical operations, research and development, regulatory affairs, quality assurance, manufacturing, supply chain, market access, and commercial functions.
+
+Search criteria are tailored to the specific position and the expertise required.
+
+### Financial Services & Banking
+Financial institutions need professionals who can support business growth, financial discipline, risk management, regulatory compliance, customer relationships, and operational effectiveness.
+
+We support searches across banking, corporate finance, investment-related functions, financial operations, risk, compliance, and other relevant leadership areas.
+
+Candidate requirements depend on the institution, role, applicable regulations, and the responsibilities involved.
+
+### Insurance & Risk Management
+Insurance and risk-focused organizations require leaders who understand risk evaluation, underwriting, claims, distribution, regulatory obligations, and business performance.
+
+We support searches for relevant executives and senior professionals across insurance operations, risk management, actuarial functions, claims leadership, compliance, and commercial development.
+
+### Technology & Software
+Technology organizations need leaders who can guide product development, engineering, digital transformation, cybersecurity, infrastructure, data, and technology strategy.
+
+We support searches for technology executives, engineering leaders, information technology directors, cybersecurity professionals, data leaders, product executives, and other relevant specialists.
+
+Search criteria consider the organization's technology environment, business model, and the technical and leadership capabilities required.
+
+### Manufacturing & Industrial Operations
+Manufacturing businesses depend on leaders who can oversee production, supply chains, engineering, safety, quality, operational efficiency, and continuous improvement.
+
+We support searches for plant managers, operations directors, manufacturing executives, engineering leaders, quality professionals, and supply chain leadership.
+
+The search approach reflects the organization's production environment, operational scale, and technical requirements.
+
+### Consumer Goods & Retail
+Consumer-facing organizations operate in competitive markets where brand strategy, customer understanding, merchandising, distribution, and commercial performance matter.
+
+We support recruitment across commercial leadership, marketing, sales, category management, retail operations, merchandising, and supply chain functions.
+
+Candidate evaluation considers the relevant market, customer segment, operating model, and business objectives.
+
+### Energy & Natural Resources
+Energy and natural resources organizations may require leadership experience in project delivery, operations, engineering, safety, asset management, commercial strategy, and regulatory environments.
+
+We support targeted searches for relevant executives and senior professionals across energy operations, project management, engineering, business development, and operational leadership.
+
+Requirements are defined according to the sector, assignment, and specific technical or professional expertise needed.
+
+### Logistics & Supply Chain
+Supply chain and logistics operations require coordination across procurement, planning, transportation, warehousing, inventory, supplier relationships, and distribution.
+
+We support searches for procurement leaders, supply chain directors, logistics executives, operations managers, sourcing professionals, and other relevant senior specialists.
+
+Search criteria can include operational scale, cost management, supplier strategy, process improvement, and international supply chain experience.
+
+### Professional & Business Services
+Professional and business services firms depend on leaders who can develop client relationships, manage teams, improve delivery, and support commercial growth.
+
+We support relevant searches across consulting, business services, professional practices, sales leadership, client services, and operational management.
+
+Each assignment is tailored to the organization's service model, client base, and leadership requirements.
+
+### Industry CTA
+**Heading:** Searching for Talent in Your Industry?
+
+Tell us about your industry, the role you need to fill, and the experience required. We will review your enquiry and discuss how a targeted recruitment approach may support your organization.
+
+**Button:** Discuss Your Industry Search
+
+## 19.5 FOR EMPLOYERS PAGE — FULL COPY
+
+### Introduction
+Hiring for an important leadership position requires a clear understanding of the organization's priorities and the capabilities needed to move the business forward.
+
+Alexanders Career Strategy works with employers to define search requirements, identify relevant talent, and engage professionals whose experience aligns with the position.
+
+Whether you are appointing a senior executive, strengthening a management team, or searching for a specialist professional, we aim to provide a focused and professional recruitment process.
+
+### When to Engage an Executive Search Partner
+Executive search can be particularly useful when a position requires substantial leadership experience, specialist industry knowledge, confidentiality, or access to professionals who may not be actively applying for jobs.
+
+A targeted search can also help organizations explore a wider pool of potential candidates and establish clearer selection criteria.
+
+### Our Employer Engagement Process
+**1. Understand Your Requirements:** We discuss the position, reporting structure, business objectives, responsibilities, essential experience, and candidate expectations.
+
+**2. Define the Search Strategy:** We establish the relevant candidate profile, potential talent markets, search priorities, and appropriate outreach approach.
+
+**3. Identify Potential Candidates:** We research relevant professionals and identify individuals whose experience may align with the role.
+
+**4. Engage and Evaluate:** We approach suitable candidates, establish their interest, and review their experience against the requirements of the assignment.
+
+**5. Present a Shortlist:** We present suitable candidates for client consideration, with relevant information to support the selection process.
+
+**6. Support the Selection Process:** We help coordinate communication and next steps as the employer conducts interviews, completes appropriate checks, and makes its decision.
+
+### Working with Alexanders Career Strategy
+Every recruitment assignment has different requirements. We aim to establish a clear understanding of the position, communicate expectations, and maintain a professional process throughout the engagement.
+
+The scope, timing, deliverables, and commercial terms of each assignment should be agreed with the client before the search begins.
+
+### Employer Enquiry Form Introduction
+**Heading:** Tell Us About Your Hiring Needs
+
+Complete the form below to share information about your organization and the position you are looking to fill. Include the role title, department, location, seniority, and any essential qualifications or experience.
+
+Please avoid submitting sensitive personal information that is not necessary for your enquiry. Our team will review the details and contact you using the information provided.
+
+**Form fields:** Full name; business email; company name; job title; industry; position to be filled; seniority level; employment location; recruitment requirements; preferred contact method; additional information; privacy notice acknowledgement.
+
+**Submit button:** Submit Employer Enquiry
+
+**Success message:** Thank you for contacting Alexanders Career Strategy. Your enquiry has been submitted successfully. Our team will review your requirements and contact you if further discussion is appropriate.
+
+**Error message:** We could not submit your enquiry. Please review the required fields and try again.
+
+Only display the success message after the server confirms that the submission has been processed successfully.
+
+## 19.6 FOR CANDIDATES PAGE — FULL COPY
+
+### Introduction
+Alexanders Career Strategy welcomes enquiries and CV submissions from executives, senior managers, and specialist professionals interested in being considered for relevant recruitment assignments.
+
+Our search work focuses on matching professional experience and capabilities with the requirements of specific positions. We encourage candidates to provide accurate information about their background, leadership responsibilities, achievements, specialist knowledge, and career interests.
+
+Submitting your CV allows your information to be considered for relevant opportunities where appropriate. It does not guarantee that a suitable vacancy is available, that you will be contacted, or that you will be selected for a position.
+
+### Who Should Submit a CV?
+We welcome relevant submissions from professionals with experience in C-suite and executive leadership; board and non-executive leadership; vice president and director-level positions; general management and business operations; healthcare and medical leadership; pharmaceutical and biotechnology functions; finance, banking, insurance, and risk; technology, engineering, and digital leadership; manufacturing, procurement, and supply chain; sales, marketing, and commercial leadership; and other specialist and senior professional functions.
+
+### Preparing Your CV
+A clear and current CV helps communicate your professional background and suitability for potential opportunities.
+
+Where relevant, include your current or most recent role, previous positions, leadership responsibilities, measurable achievements, industry experience, qualifications, and specialist capabilities.
+
+Please ensure that the information you submit is accurate and that you have the right to share any included information.
+
+### Candidate Privacy
+We recognize that a CV contains personal information. Candidate information should be collected, stored, accessed, and retained in accordance with the website's privacy notice and applicable data protection requirements.
+
+CV files must be stored in private storage with appropriate access restrictions. They must not be exposed through public file URLs or accessible to unauthorized users.
+
+Candidates should be informed about how their information will be used and how they can contact the firm regarding their submitted information.
+
+### Candidate Submission Form Introduction
+**Heading:** Submit Your CV
+
+Share your contact details, professional background, areas of expertise, and preferred career opportunities. Upload your current CV in one of the accepted file formats.
+
+Your submission will be processed securely and may be reviewed for relevant search assignments. We will contact you if your experience aligns with an opportunity we are handling and further discussion is appropriate.
+
+**Form fields:** Full name; email address; phone number (optional); current job title; current industry; years of professional experience (optional); preferred job title or function; preferred work location; LinkedIn profile (optional); CV upload; privacy notice acknowledgement.
+
+**Submit button:** Submit My CV
+
+**Success message:** Thank you for submitting your CV to Alexanders Career Strategy. Your submission has been received successfully and may be considered for relevant opportunities.
+
+**Error message:** Your CV could not be submitted. Please check your details and file format, then try again.
+
+Only show the success message after the server confirms that the form submission and file handling have completed successfully.
+
+## 19.7 OUR SEARCH PROCESS / OUR APPROACH PAGE — FULL COPY
+
+### Introduction
+A successful executive search begins with a clear definition of the opportunity and a shared understanding of what the organization needs.
+
+Alexanders Career Strategy follows a structured approach designed to identify relevant talent, engage suitable professionals, and help employers make informed recruitment decisions.
+
+The precise process may vary depending on the role, industry, location, confidentiality requirements, and scope of the assignment.
+
+### Stage 1: Client Consultation & Role Definition
+We begin by understanding the organization, the position, its responsibilities, reporting structure, and the business objectives the successful candidate will support.
+
+This stage helps establish the essential experience, leadership capabilities, qualifications, and other criteria that will guide the search.
+
+### Stage 2: Search Strategy & Talent Mapping
+We develop a targeted search approach based on the role and relevant talent market.
+
+Research may include identifying suitable industries, organizations, professional backgrounds, and potential candidate pools.
+
+### Stage 3: Candidate Identification & Outreach
+We identify potential candidates and approach relevant professionals using appropriate and professional communication.
+
+The objective is to establish interest, understand relevant experience, and determine whether further consideration is appropriate.
+
+### Stage 4: Candidate Screening & Evaluation
+We review candidates against the agreed requirements, considering relevant experience, professional achievements, leadership responsibilities, specialist capabilities, and interest in the opportunity.
+
+Any additional assessment should be appropriate to the role and carried out transparently.
+
+### Stage 5: Shortlisting & Client Interviews
+Suitable candidates may be presented to the client for consideration. The client can then conduct interviews and evaluate alignment with the role and organization.
+
+We support communication and coordination as agreed for the assignment.
+
+### Stage 6: References & Appropriate Checks
+Where required, reference checks and other relevant checks should be conducted with suitable authorization and in accordance with applicable law and agreed procedures.
+
+### Stage 7: Offer & Appointment Support
+We can support communication between the employer and selected candidate during the offer process, subject to the scope agreed for the assignment.
+
+The employer remains responsible for its hiring decisions and applicable employment procedures.
+
+### Stage 8: Follow-Up
+Following an appointment, follow-up may help both parties address outstanding communication and transition matters, depending on the agreed engagement.
+
+### Process CTA
+**Heading:** Ready to Begin Your Search?
+
+Share your hiring requirements with us and we will discuss the position, the talent market, and the appropriate next steps for your recruitment assignment.
+
+**Button:** Start a Conversation
+
+## 19.8 INSIGHTS PAGE — INTRODUCTION AND FULL ARTICLE TEXTS
+
+### Insights page introduction
+The executive recruitment landscape continues to evolve as organizations respond to changing business priorities, emerging technologies, workforce expectations, and competition for experienced leadership talent.
+
+Our Insights section explores topics relevant to employers, executives, and professionals, including executive search strategies, leadership recruitment, candidate evaluation, talent mapping, and career development.
+
+The purpose of these articles is to provide practical perspectives that help readers think more clearly about recruitment decisions and professional opportunities.
+
+Publish each article below as a complete post. Display a title, excerpt, author only when verified, and publication date only when confirmed. Do not invent research, statistics, quotations, or expert endorsements.
+
+### Article 1: Why Executive Search Matters in Leadership Recruitment
+Finding the right executive is an important decision for any organization. Senior leaders influence strategy, team performance, operational priorities, and the direction of the business. A poorly aligned appointment can create disruption, while the right person can help an organization execute its objectives more effectively.
+
+Executive search provides a structured way to identify and engage professionals whose experience matches a specific leadership requirement. Rather than relying exclusively on applicants who respond to a public vacancy, a targeted search can explore relevant talent markets and approach qualified individuals directly.
+
+The process begins with understanding the role. Employers should define the outcomes expected from the successful candidate, the capabilities needed to achieve them, and the experience that is genuinely essential.
+
+Research and candidate engagement follow. Potential candidates can then be assessed against consistent criteria, helping employers compare relevant experience and make informed decisions.
+
+Executive search is not simply about finding someone with an impressive title. It is about identifying a professional whose capabilities, motivation, and experience align with the organization's needs.
+
+For employers recruiting into important positions, a clear brief and a disciplined search process provide a useful foundation for better hiring decisions.
+
+### Article 2: How to Define the Right Executive Candidate Profile
+An effective executive search starts with a clear candidate profile. Without one, employers can spend time reviewing professionals who look impressive on paper but do not meet the actual requirements of the role.
+
+The first step is to define the outcomes the new leader must deliver. These may include improving operational performance, developing a commercial function, leading a transformation, strengthening financial controls, or expanding into a new market.
+
+Next, distinguish essential requirements from desirable ones. Essential criteria should relate directly to the responsibilities of the position. Desirable experience can help differentiate candidates but should not unnecessarily restrict the search.
+
+Employers should also consider leadership style, stakeholder management, communication, decision-making, and the ability to operate within the organization's environment.
+
+The candidate profile should be realistic about compensation, location, reporting lines, and the expectations of the position. Unclear or conflicting requirements can make a search unnecessarily difficult.
+
+A well-defined profile helps recruiters identify relevant candidates, supports more consistent evaluations, and gives interviewers a shared framework for making decisions.
+
+Before beginning a search, employers should be able to explain what success in the role will look like and which capabilities are most important to achieving it.
+
+### Article 3: The Value of Talent Mapping in Executive Recruitment
+Talent mapping helps organizations understand where relevant professionals may be found and what experience exists within a particular market.
+
+Instead of beginning with individual applications, talent mapping examines the wider talent landscape. This can involve researching relevant organizations, leadership structures, professional backgrounds, specialist skills, and potential candidate pools.
+
+For employers, this research can provide a clearer view of the market before a hiring decision is made. It may help identify whether a required skill set is common, highly specialized, concentrated in particular industries, or difficult to recruit within a given location.
+
+Talent mapping can also support succession planning and future workforce needs by helping organizations understand the leadership capabilities available in their sector.
+
+The usefulness of a talent map depends on the quality and relevance of the research. Information should be handled responsibly, kept appropriately current, and used in accordance with applicable privacy requirements.
+
+Talent mapping does not guarantee that every identified professional will be available or interested in moving. Its purpose is to improve market understanding and help organizations develop a more informed search strategy.
+
+When combined with a clear role definition and targeted outreach, talent mapping can provide a strong foundation for executive recruitment.
+
+### Article 4: What Senior Professionals Should Include in an Executive CV
+An executive CV should make it easy for a reader to understand the candidate's responsibilities, leadership experience, and professional contribution.
+
+Begin with a concise professional summary that reflects your experience, areas of expertise, and the types of leadership challenges you have handled. Avoid vague descriptions that could apply to almost any professional.
+
+Your work history should clearly state your positions, employers, dates, and responsibilities. Where possible, describe achievements and outcomes rather than listing duties alone.
+
+For example, explain the scale of a function you led, a process you improved, a team you developed, or a commercial objective you helped deliver. Include figures only when they are accurate and you are comfortable disclosing them.
+
+Relevant qualifications, certifications, industry expertise, board experience, and specialist knowledge can also be important, depending on the role.
+
+Keep the document organized and easy to read. Use consistent formatting, accurate contact information, and language that reflects your actual experience.
+
+An executive CV should be tailored to the type of opportunity being pursued while remaining truthful and complete. Its purpose is to help employers understand your background and determine whether a conversation would be useful.
+
+### Article 5: Confidentiality in Executive Search
+Confidentiality can be particularly important when recruiting senior leaders. An executive may be employed elsewhere, an organization may be preparing for a sensitive transition, or a hiring decision may not yet be ready for public announcement.
+
+A professional search process should establish how information will be shared, who is authorized to receive it, and which details can be disclosed at each stage.
+
+For employers, this means agreeing on the confidentiality requirements of the assignment and avoiding unnecessary disclosure of sensitive organizational information.
+
+For candidates, it means explaining the opportunity appropriately, respecting professional boundaries, and handling CVs and personal details with care.
+
+Confidentiality should not be treated as a promise that information can never be disclosed under any circumstances. Information handling must remain consistent with applicable legal obligations, agreed procedures, and legitimate recruitment needs.
+
+Secure storage, restricted access, appropriate communication channels, and clear privacy notices all contribute to responsible information handling.
+
+A thoughtful approach to confidentiality helps establish trust and supports professional relationships between employers, recruiters, and candidates.
+
+### Article 6: Leadership Recruitment Across Different Industries
+Leadership capabilities are important across industries, but the experience needed for success can vary considerably.
+
+A healthcare executive may need to understand service delivery, quality, and regulatory requirements. A pharmaceutical leader may need experience in product development, manufacturing, or regulatory affairs. A technology executive may need to guide engineering teams, cybersecurity, digital strategy, or product innovation.
+
+Similarly, financial services leaders may require expertise in risk, compliance, or financial performance, while manufacturing executives may focus on production, quality, safety, and operational efficiency.
+
+These differences make it important to define search criteria around the actual responsibilities of the role rather than relying on job titles alone.
+
+Transferable leadership capabilities can be valuable, but they should be considered alongside the technical, commercial, and industry knowledge needed for the position.
+
+A well-designed search evaluates both dimensions. It identifies what the organization needs from its next leader and determines which professional backgrounds are most likely to meet those requirements.
+
+Industry-aware recruitment helps employers approach the market with clearer expectations and assess candidates against criteria relevant to the work.
+
+## 19.9 CONTACT PAGE — FULL COPY
+
+### Introduction
+Whether you are an employer seeking executive talent, an organization planning a specialist search, or a professional interested in relevant opportunities, we welcome your enquiry.
+
+Please use the appropriate form to tell us about your requirements. Providing clear information will help us understand the purpose of your enquiry and determine the appropriate next step.
+
+For recruitment enquiries, include the position, industry, location, seniority, and key experience required. For candidate enquiries, provide your professional background and the types of roles you are interested in.
+
+We aim to handle enquiries professionally and process personal information in accordance with our privacy notice.
+
+### Contact form
+**Heading:** Send Us an Enquiry
+
+**Fields:** Full name; email address; organization (optional); enquiry type; subject; message; privacy notice acknowledgement.
+
+**Button:** Send Enquiry
+
+**Success message:** Thank you for contacting Alexanders Career Strategy. Your message has been submitted successfully.
+
+**Error message:** We could not submit your message. Please check your information and try again.
+
+The form must send a real submission to the configured backend and trigger the appropriate email notification. Do not display a success message before successful processing is confirmed.
+
+## 19.10 PRIVACY POLICY — CONTENT FRAMEWORK FOR LEGAL REVIEW
+
+### Privacy Policy
+Alexanders Career Strategy respects the privacy of individuals who visit our website, contact our team, submit an enquiry, or provide a CV for consideration.
+
+This Privacy Policy should explain what personal information the website collects, why it is collected, how it is used, where it is stored, who may access it, how long it is retained, and how individuals can exercise applicable privacy rights.
+
+Before publishing this page, confirm the firm's actual legal identity, jurisdiction, service providers, contact details, data retention practices, and applicable law.
+
+### Information We May Collect
+Depending on how you interact with the website, we may collect contact details, professional information, CVs, employment history, qualifications, recruitment preferences, enquiry messages, and other information you choose to provide.
+
+Technical information may also be processed where necessary to operate, protect, and maintain the website.
+
+### How Information Is Used
+Personal information may be used to respond to enquiries, administer recruitment assignments, review candidate submissions, communicate about relevant opportunities, maintain website security, and meet applicable legal obligations.
+
+Candidate information should only be used for purposes described in the applicable privacy notice and permitted by law.
+
+### Storage and Security
+CVs and recruitment submissions must be stored using appropriate security controls. Access should be restricted to authorized personnel with a legitimate need to use the information.
+
+The website must not expose private CV files through publicly accessible storage URLs. Any access to stored documents must be appropriately controlled.
+
+### Sharing and Service Providers
+Information may be processed by service providers required to operate the website, store submissions, or deliver email notifications. The final policy must identify the relevant providers and describe applicable safeguards accurately.
+
+Do not claim that information is never shared if the website uses hosting, storage, database, analytics, or email services that process it.
+
+### Retention and Individual Rights
+The final policy must explain how long information is retained, when it may be deleted, and how individuals can submit requests concerning their information.
+
+Applicable rights and legal requirements may depend on the person's location and the circumstances of processing.
+
+### Contact
+Provide the firm's verified privacy contact details and the process for submitting privacy-related questions or requests.
+
+**Implementation requirement:** This is a content framework, not a substitute for a completed, jurisdiction-appropriate privacy policy. Confirm actual practices and legal requirements before publication.
+
+## 19.11 TERMS OF USE — CONTENT FRAMEWORK FOR LEGAL REVIEW
+
+### Website Terms of Use
+These Terms of Use govern access to and use of the Alexanders Career Strategy website. Visitors should read these terms before using the website or submitting information through its forms.
+
+The final terms must identify the legal entity operating the website and explain the applicable rules for website use, intellectual property, submitted information, external links, liability, and dispute resolution.
+
+### Website Information
+The website provides general information about the firm's executive search and recruitment services. Information on the website should not be interpreted as a guarantee that a particular role, candidate, recruitment assignment, or employment opportunity is available.
+
+### Candidate Submissions
+Submitting a CV does not guarantee an interview, an offer, employment, or inclusion in a particular recruitment process. Candidates are responsible for ensuring that information they submit is accurate and that they are authorized to share it.
+
+### Employer Enquiries
+Submitting an employer enquiry does not automatically establish a recruitment engagement. The scope, deliverables, commercial terms, and other conditions of an assignment should be agreed separately between the relevant parties.
+
+### Intellectual Property
+The website's original text, branding, visual materials, and other protected content should not be copied or used without appropriate authorization, except as permitted by applicable law.
+
+### External Services
+The website may rely on third-party hosting, storage, communication, or other services. The final terms should accurately describe relevant third-party services and applicable limitations.
+
+### Updates and Legal Review
+These Terms of Use must be reviewed and adapted to the actual business, legal entity, applicable jurisdiction, and operating practices before publication. Do not invent a governing law, company registration number, legal address, or other unverified legal information.
+
+## 19.12 GLOBAL FOOTER COPY
+
+**Company description:** Alexanders Career Strategy is an executive search and recruitment firm focused on identifying exceptional executives, senior leaders, and specialist professionals for organizations across multiple industries.
+
+**Footer links:** Home; About Us; Our Expertise; Industries We Serve; For Employers; For Candidates; Our Search Process; Insights; Contact; Privacy Policy; Terms of Use.
+
+**Footer CTA heading:** Let's Find the Right Talent
+
+**Footer CTA text:** Connect with Alexanders Career Strategy to discuss your executive search, senior recruitment, or specialist talent requirements.
+
+**Footer CTA button:** Contact Our Team
+
+Display the company name and dynamically generated current year. Do not invent contact details or social media profiles.
+
+## 19.13 GLOBAL CONTENT AND IMPLEMENTATION QA
+
+1. Place every supplied article in its corresponding page or subsection.
+2. Ensure all service cards link to relevant details or the employer enquiry form.
+3. Ensure all industry cards link to relevant industry sections or pages.
+4. Make the Insights page display complete article text, not only article titles or summaries.
+5. Use consistent headings, concise paragraphs, descriptive subheadings, and readable formatting.
+6. Preserve the premium forest green, black, and gold identity.
+7. Keep pages responsive and accessible on desktop, tablet, and mobile.
+8. Connect employer enquiries, candidate CV submissions, and general contact forms to the configured backend.
+9. Use private CV storage, server-side validation, restricted access, and configured email notifications.
+10. Keep secret keys and service credentials out of frontend code.
+11. Do not claim that a form, email, file upload, or database integration works until it has been tested.
+12. Review the Privacy Policy and Terms of Use against the actual business and applicable law before launch.
+13. Remove accidental placeholders and empty sections from the live website.
+14. Ensure no fictitious credentials, clients, reviews, or statistics appear.
+15. Provide setup, environment variable, deployment, and customization instructions.
+
+## 20. REQUIRED BRAND CONFIGURATION AND SECURE INTEGRATIONS
+
+Use the following brand details:
+- Company name: Alexanders Career Strategy
+- Tagline: Executive Search. Exceptional Talent. Strategic Impact.
+- Primary market: United States
+- Brand colors: forest green, black, and gold
+- Primary focus: executive search and headhunting
+- Additional services: C-suite and board search, senior management recruitment, specialist recruitment, confidential search, talent mapping, market intelligence, leadership assessment, and cross-industry search
+- Primary audiences: employers and candidates
+
+Implement the requested working form processing, secure CV storage, and email notifications. Preferred architecture when compatible with the existing project:
+- Netlify deployment and Netlify Functions for server-side processing
+- Supabase Postgres for enquiry metadata
+- A private Supabase Storage bucket for CV files
+- Resend for transactional email notifications
+
+Use environment variables for all credentials. If using the architecture above, configure:
+- SUPABASE_URL
+- SUPABASE_SERVICE_ROLE_KEY
+- SUPABASE_CV_BUCKET
+- RESEND_API_KEY
+- EMAIL_FROM
+- EMPLOYER_NOTIFICATION_EMAIL
+- CANDIDATE_NOTIFICATION_EMAIL
+- SITE_URL
+
+Do not expose SUPABASE_SERVICE_ROLE_KEY or RESEND_API_KEY to browser code. Validate inputs and file types server-side, apply file-size limits, protect endpoints from spam and abuse, restrict storage access, and avoid placing CV attachments or private file URLs in ordinary notification emails. Send notifications with submission metadata and an access-controlled workflow instead.
+
+The employer form must notify the configured employer notification address and send an appropriate confirmation to the employer contact when configured. Candidate submission must notify the configured candidate/recruitment inbox and provide an appropriate acknowledgement to the candidate. General contact submissions must reach the configured business inbox. Do not send success responses until the backend has confirmed processing.
+
+If the existing project uses a different compatible framework or provider, adapt carefully rather than replacing working code unnecessarily. Document all required setup steps and any integrations that remain unconfigured. Test the full workflow in the actual deployment environment before describing it as operational.
+
+## 21. FINAL DELIVERY CHECKLIST
+
+Before declaring the website complete:
+- Build all requested pages and populate them with the copy in this prompt.
+- Resolve the final navigation structure without duplicate or conflicting sections.
+- Test desktop and mobile layouts.
+- Test all links and CTAs.
+- Test employer enquiry submission.
+- Test candidate registration and private CV upload.
+- Test contact form submission.
+- Test notification email delivery and acknowledgement messages.
+- Verify private storage permissions and unauthorized access protection.
+- Verify environment variables and Netlify deployment settings.
+- Verify metadata, sitemap, robots.txt, and the 404 page.
+- Review accessibility and keyboard navigation.
+- Check for broken links, missing images, console errors, and placeholder text.
+- Review legal pages before publication.
+- Provide a README with local setup, deployment, environment variables, and troubleshooting.
+- Report honestly which items were tested and which still require user configuration.
+
+Do not stop after creating a homepage or a visual prototype. Build the working website in the available project and report honestly what is complete and what still requires configuration before launch.
+
+
+## 22. MEET OUR TEAM — FIVE PEOPLE, PLAIN PHOTOGRAPHS, PREMIUM CONTACT CONTROLS
+
+Build a polished “Meet Our Team” section and a dedicated team page/anchor as appropriate. This section must support five people and use the latest contact details below. Display each supplied real team photograph plainly and unblurred immediately. This is the final instruction and supersedes any earlier blur or click-to-reveal photo requirement.
+
+### Section heading and introduction
+**Heading:** Meet Our Team
+
+**Supporting copy:** “Executive search is built on trust, sound judgment, and meaningful relationships. Meet the people behind Alexanders Career Strategy.”
+
+### Alexander Divine
+**Suggested specialty title:** Executive Search & Talent Strategy
+
+**Suggested profile copy — owner should confirm role details before publication:** “Alexander’s profile focuses on executive search, talent strategy, and professional career development. His work at Alexanders Career Strategy centers on understanding organizational hiring needs, identifying promising talent, and supporting meaningful connections between businesses and professionals.”
+
+Approved public contact email: `alexander.divine.hr@gmail.com`
+- X: https://x.com/Divinecareers
+- Facebook: https://www.facebook.com/share/1MBZjCZnLH/
+- Photo: use the actual photograph supplied by the owner. Never substitute a stock or generated portrait.
+
+### Paul Alexander
+**Suggested specialty title:** Recruitment Coordination & Candidate Relations
+
+**Suggested profile copy — owner should confirm role details before publication:** “Paul’s proposed area of focus is recruitment coordination and candidate relations. This profile emphasizes clear communication, professional engagement, and supporting a positive recruitment experience for candidates and organizations seeking talent.”
+
+Approved public contact email: `paulpatog@gmail.com`
+- Photo: use the actual photograph supplied by the owner. Never substitute a stock or generated portrait.
+
+### Piers Fisher
+**Suggested specialty title:** Talent Research & Executive Search
+
+**Suggested profile copy — owner should confirm role details before publication:** “Piers’s proposed area of focus is talent research and executive search. This profile emphasizes identifying relevant professionals, understanding talent markets, and connecting organizations with candidates whose experience and capabilities align with leadership and specialist requirements.”
+
+Approved public contact email: `pier.fisher.hr@gmail.com`
+- Photo: the owner says the photograph will be added. Use it when supplied; until then, use a neat neutral placeholder and document the missing asset.
+
+### Fred Geerken
+**Suggested specialty title:** Professional Networking & Talent Engagement
+
+**Suggested profile copy — owner should confirm role details before publication:** “Fred’s proposed profile focuses on professional networking and talent engagement, highlighting the value of industry connections and identifying professionals who may align with relevant career opportunities and executive search assignments.”
+
+LinkedIn: https://www.linkedin.com/in/fred-g-geerken-2a92b25/
+- Create a clear, recognizable LinkedIn icon/link that opens the supplied URL in a new tab with appropriate external-link security attributes.
+- Photo: use a real photo only if the owner supplies one; do not assume one exists.
+
+### Eunice Angelo
+**Suggested specialty title:** Candidate Engagement & Talent Development
+
+**Suggested profile copy — owner should confirm role details before publication:** “Eunice’s proposed area of focus is candidate engagement and talent development. This profile emphasizes understanding career aspirations, supporting professional communication, and helping candidates navigate relevant opportunities throughout the recruitment process.”
+
+- Photo: use the actual photograph supplied by the owner when available. If missing, show a neutral placeholder and list the asset as required.
+
+IMPORTANT: The specialty titles and profile copy above are draft suggestions, not verified biographies or assertions of actual duties. Keep them editable and do not publish them as confirmed facts until the owner approves them. Do not invent other job titles, credentials, years of experience, client work, qualifications, awards, or career histories.
+
+### Plain team photographs — final rule
+- Show actual supplied team portraits sharp, clearly visible, and unblurred as soon as the section loads.
+- Remove all blur filters, pixelation, masks, “Click to reveal photo” overlays, reveal buttons, and photo-reveal modals/lightboxes previously specified for team portraits.
+- Do not require clicking, hovering, or keyboard activation to see a clear team photo. The default visible card image must already be clear.
+- Use sensible cropping (`object-fit: cover` or equivalent), preserve faces, do not stretch images, and make cards responsive.
+- Use only the correct real supplied photograph for each person. Never reuse one person's portrait for another person unless the owner explicitly instructs that.
+- Suggested filenames, which do not imply assets already exist: `public/images/team/alexander-divine.webp`, `paul-alexander.webp`, `piers-fisher.webp`, `fred-geerken.webp`, and `eunice-angelo.webp`.
+- If the real photo is missing, show a neutral placeholder only, document the missing image, and do not publish a broken image or fake portrait.
+
+### Beautiful, presentable contact icon and contact panel
+Create a consistent, premium contact control on each team card. Avoid tiny, unstyled browser-default icons and do not use emoji as the contact icon.
+
+Visual style:
+- A clean envelope or contact-card icon inside a circular or softly rounded control.
+- Gold icon on a forest-green or black background with a fine gold border or subtle highlight.
+- Restrained hover/focus state, such as a slight lift or soft gold glow; no cartoon styling or excessive animation.
+- Label the control “Contact” where space allows. If icon-only on a small screen, include an accessible label and tooltip.
+- Use the icon library already available in the project. If none exists, use a small inline SVG rather than a large new dependency.
+
+Interaction:
+1. Clicking or keyboard-activating the contact button opens an elegant accessible popover or panel anchored to the relevant card; on narrow screens this may become a compact dialog/bottom sheet.
+2. Display the heading “Contact [Team Member Name]”.
+3. Show only the person's supplied email address(es) below. For Alexander Divine, show only `alexander.divine.hr@gmail.com`. For Paul Alexander, show only `paulpatog@gmail.com`. For Piers Fisher, show only `pier.fisher.hr@gmail.com`. Do not add alternate addresses.
+4. Show only supplied social links: Alexander’s X and Facebook; Fred’s LinkedIn. Do not invent other social accounts.
+5. Email addresses must be correctly spelled `mailto:` links. Optional copy-address controls must actually copy the exact address and provide success/failure feedback.
+6. Include a clear close control, keyboard focus management, Escape-to-close support, and return focus to the opening button. Ensure it works on mouse, keyboard, and touch.
+7. Use semantic buttons, appropriate accessible names such as `Open contact details for Piers Fisher`, visible focus indicators, and adequate colour contrast.
+8. Keep contact-panel email addresses separate from backend credentials and form-notification configuration. A public profile email is not automatically the site's notification recipient.
+
+### Final approved team contact data — use exactly
+- Alexander Divine: `alexander.divine.hr@gmail.com`; X `https://x.com/Divinecareers`; Facebook `https://www.facebook.com/share/1MBZjCZnLH/`.
+- Paul Alexander: `paulpatog@gmail.com`.
+- Piers Fisher: `pier.fisher.hr@gmail.com`.
+- Fred Geerken: LinkedIn `https://www.linkedin.com/in/fred-g-geerken-2a92b25/`.
+- Eunice Angelo: no email or social profile supplied; do not invent one.
+
+Never display the superseded alternate addresses `divinecareerstrategy@gmail.com`, `piersfishersearch@gmail.com`, or `piersfisherexecutivesearch@gmail.com` anywhere in the public team contact UI.
+
+### Team content editing
+Make names, approved specialties/biographies, email links, social links, image paths, and display order editable through the CMS or central content configuration. Confirm contact details and draft specialties with the owner before production launch. Test every email/social link and the contact-panel behavior on desktop and mobile.
+
+
+## 23. JOBS AND VACANCIES BOARD — CURRENT STARTER LISTINGS AND APPLICATION ROUTING
+
+### Goal and reference style
+Create a premium, practical vacancy area inspired by the supplied Robert Walters Jobs/Expertise/Candidates experience: searchable listings, filters, informative role cards, detailed role pages, and clear application calls to action. Adapt the UI to Alexanders Career Strategy's forest green, black, and gold identity. Do not copy Robert Walters wording, branding, graphics, or exact page design.
+
+**Research review date: 23 October 2026.** Starter examples below were found on employer-owned career sites or official applicant-tracking system (ATS) pages. Re-open and verify every listing immediately before publication and check periodically: vacancies can close without notice. If an official listing is closed, remove it from the active list. Do not claim a job is open if the live status cannot be verified.
+
+### Critical application-routing rule
+Unless Alexanders Career Strategy has an actual, confirmed recruitment mandate from the named employer, do not imply that the firm represents that employer or manages its hiring process.
+
+For third-party job listings, the main CTA must be **“Apply on Employer’s Website”** and open the employer’s official listing/application system. That is the genuine place to apply to the employer.
+
+Provide a separate optional action: **“Share My CV with Alexanders Career Strategy.”** Explain clearly that this is a separate submission for consideration by Alexanders Career Strategy for its own search work or relevant future opportunities; it is not an application submitted to the listed employer. Obtain explicit consent before storing a CV or using the candidate's data for future opportunities. Never state that a CV has been forwarded to an employer unless authorized and actually done.
+
+For the internal CV-sharing form, use the existing planned Netlify Functions / Supabase / Resend stack and environment variables where configured: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_CV_BUCKET`, `RESEND_API_KEY`, `EMAIL_FROM`, `EMPLOYER_NOTIFICATION_EMAIL`, `CANDIDATE_NOTIFICATION_EMAIL`, and `SITE_URL`. Store CVs in a private bucket. Keep secrets server-side. Notify the configured recruitment inbox without attaching CVs or putting sensitive CV contents into email. Send a candidate confirmation only after the database/storage submission succeeds. If the inbox, email provider, database, or private storage is not configured, mark it as a launch blocker and do not claim applications are being received.
+
+### Reusable job card and detail-page structure
+Each vacancy card should show job title, employer, location, work arrangement, employment type where confirmed, salary where officially stated, original short summary, and a “View Role Details” link. Do not invent posting dates, deadlines, salaries, benefits, location or work authorization details. If salary is not published, display “Not disclosed by employer.” If the posting date is unavailable, omit it or say “Date not provided.”
+
+Each detail page should include an overview, key responsibilities, qualifications, location/work arrangement, employer attribution, source link, date last checked, official Apply CTA, and separate optional CV-sharing CTA. Summarize facts in original prose; do not copy full employer job descriptions verbatim. Do not fabricate an exclusive recruitment relationship, hiring guarantee, benefits, or employee testimonials.
+
+### Starter vacancy 1: Vice President, Clinical Development
+**Employer:** Servier  
+**Location:** Boston, Massachusetts  
+**Arrangement:** Hybrid; the current employer listing says 2–3 days per week at its Boston Seaport office  
+**Type:** Full-time  
+**Advertised salary:** $342,000–$433,000  
+**Posted:** 21 October 2026  
+**Official listing:** https://jobs.servier.com/job/Boston-Vice-President%2C-Clinical-Development-MA-02210/1350751455/
+
+**Summary:** Senior oncology clinical-development leadership across a substantial part of the oncology portfolio, with responsibility for portfolio decisions, the clinical-development strategy, cross-functional coordination, and leadership through early and late development.
+
+**Responsibilities:** Set clinical-development strategy; oversee end-to-end clinical programs; collaborate with research, translational medicine, regulatory, safety, operations, commercial, and alliance teams; lead and develop senior clinical-development professionals.
+
+**Qualifications highlighted in the listing:** MD or equivalent; oncology board certification or eligibility (medical oncology preferred); 12+ years of progressive oncology drug-development experience including late-stage/registrational leadership; experience in global and highly cross-functional organizations.
+
+**CTA:** “Apply on Servier’s Official Careers Site” linking to the official listing above. Confirm it is still accepting applications before launch.
+
+### Starter vacancy 2: Vice President, Clinical Development
+**Employer:** Tango Therapeutics  
+**Location:** Boston, Massachusetts  
+**Arrangement:** Flexible/hybrid; the official application asks whether the applicant lives in the Greater Boston area and can commute to the Boston office  
+**Advertised salary:** $332,800–$499,200  
+**Official application:** https://job-boards.greenhouse.io/tangotherapeutics/jobs/7855118003
+
+**Summary:** Senior oncology leader accountable for the clinical-development strategy for vopimetostat, including the clinical-development plan, study design and execution, interpretation of emerging data, and collaboration across the global program team.
+
+**Responsibilities:** Lead program strategy and trial design; mentor Medical Directors and Clinical Scientists; work with clinical operations, regulatory, pharmacology, biometrics, translational medicine, medical writing, and pharmacovigilance; engage investigators and scientific experts.
+
+**Qualifications highlighted in the listing:** MD with board certification or eligibility in Medical Oncology or a related specialty; 14+ years of oncology drug development in biotech/pharma; experience leading clinical programs and biomarker-driven trials; strong understanding of oncology drug development and applicable regulations.
+
+**CTA:** “Apply on Tango Therapeutics’ Official Careers Site” linking to the official Greenhouse page above.
+
+### Starter vacancy 3: Executive Director, Clinical Development
+**Employer:** CRISPR Therapeutics  
+**Location:** South Boston, Massachusetts  
+**Arrangement:** Site-based; employer says employees work onsite at least three days a week  
+**Type:** Full-time  
+**Advertised base salary:** $290,000–$315,000, plus bonus, equity, and benefits  
+**Official application:** https://crisprtx.wd12.myworkdayjobs.com/en-US/careers/job/Director--Clinical-Development_R-100072
+
+**Summary:** Clinical-development physician leadership for autoimmune programs involving zugocaptagene-geleucel, including strategy, study oversight, medical monitoring, clinical data review, and collaboration with regulatory and operational teams.
+
+**Responsibilities:** Develop program and study strategies; guide protocols and clinical documentation; review safety and efficacy data; partner with clinical operations, data management, statistics, safety, commercial, and regulatory teams; mentor clinical-development colleagues and engage investigators.
+
+**Qualifications highlighted in the listing:** MD or DO; advanced clinical training in Rheumatology; substantial clinical/research experience (15+ years is listed as preferred); knowledge of ICH/GCP and regulatory requirements; autoimmune CAR-T experience is preferred.
+
+**CTA:** “Apply on CRISPR Therapeutics’ Official Careers Site” linking to the Workday posting above. Verify it remains open before launch.
+
+### Starter vacancy 4: Head, Oncology Clinical Development – ADCs
+**Employer:** GSK  
+**Locations shown in employer listing:** Upper Providence, Pennsylvania; Waltham, Massachusetts; Stevenage, UK; Zug, Switzerland; and London, UK  
+**Arrangement:** Hybrid, with regular onsite attendance at an eligible office  
+**Type:** Full-time  
+**Salary:** Only publish if the current official listing explicitly states the applicable range  
+**Official application:** https://gsk.wd5.myworkdayjobs.com/en-US/gskcareers/job/USA---Pennsylvania---Upper-Providence/Head--Oncology-Clinical-Development---ADCs_445182
+
+**Summary:** Senior oncology-development leadership shaping clinical-development strategy for an antibody-drug-conjugate (ADC) asset across tumor types and early- through late-phase development.
+
+**Responsibilities:** Establish integrated clinical plans; lead clinical studies and cross-functional development decisions; collaborate with regulatory and global teams; support portfolio and governance decisions.
+
+**Qualifications highlighted in the listing:** Medical degree or equivalent; oncology pharma-development experience; experience leading early- and late-stage programs; ADC or other targeted oncology program experience; global cross-functional and health-authority experience.
+
+**CTA:** “Apply on GSK’s Official Careers Site” linking to the official Workday page. Preserve the actual eligible-location and onsite requirements.
+
+### Starter vacancy 5: Vice President, Strategy & Business Development – Advanced Therapeutics Division
+**Employer:** Agilent  
+**Locations shown:** Santa Clara, California; Boston, Massachusetts; Boulder, Colorado; and eligible US remote arrangements  
+**Type:** Full-time  
+**Posting freshness:** Search result indicated it was posted around 17 October 2026  
+**Application deadline shown:** 30 October 2026  
+**Salary:** Not included unless confirmed on the live official listing  
+**Official application:** https://agilent.wd5.myworkdayjobs.com/en-US/Agilent_Careers/job/Vice-President--Strategy---Business-Development---Advanced-Therapeutics-Division_4040500
+
+**Summary:** Enterprise leadership role responsible for strategy, growth, business development, and overall performance for Agilent’s Advanced Therapeutics Division, a contract development and manufacturing organization (CDMO) business serving pharmaceutical and biotechnology customers.
+
+**Responsibilities:** Lead divisional strategy and business development; guide growth and strategic development; take enterprise-level business leadership and financial accountability.
+
+**CTA:** “Apply on Agilent’s Official Careers Site” linking to the official Workday page. Because the listed deadline is 30 October 2026, recheck immediately before publishing and automatically mark the card expired after the deadline unless the official listing has been extended and remains open.
+
+### Optional starter vacancy 6: Vice President, Early Clinical Development, Radiopharmaceutical Therapies
+**Employer:** Bristol Myers Squibb  
+**Location:** Remote, United States, as stated in the official listing  
+**Type:** Full-time  
+**Official application:** https://bristolmyerssquibb.wd5.myworkdayjobs.com/bms/job/remote---united-states---us/vice-president--early-clinical-development--radiopharmaceutical-therapies_r1604365
+
+Before publishing this role, open the official page and verify that applications remain open. Capture the current role requirements, posting date, compensation if disclosed, and work arrangement from the live listing. Do not invent any missing details.
+
+### Vacancy board UX
+Provide search by keyword/title and filters for employer, location, work arrangement, function/specialization, seniority, employment type, and salary where salary data exists. Support “Newest first” only when verified posting dates are available. Cards must be responsive, readable, keyboard accessible, and consistent with the site's brand. Use the clear empty state: “No current vacancies match your filters.” Expired roles must not display a live Apply action.
+
+For each job record, store: title, employer, official source/application URL, location, arrangement, employment type, salary, date posted, deadline, source-checked date, original summary, qualifications, status, and expiry date where relevant. Recheck listings regularly, or include an admin reminder/workflow to manually verify them. Respect third-party site terms; do not bypass login or access restrictions.
+
+### Disclosure to show on the Jobs page
+“Alexanders Career Strategy shares selected opportunities from employers’ published career pages. Unless a role is specifically identified as an authorized search assignment, the listed employer manages its own hiring process. Please use the official application link for that employer. You may separately choose to share your CV with Alexanders Career Strategy for consideration for relevant future opportunities.”
+
+Do not use employers' logos unless permitted. Link and attribute the source on each role. Do not imply a partnership, endorsement, or recruitment mandate where one has not been confirmed.
+
+### Genuine application destinations and launch QA
+For applications to third-party employers, link directly to that employer’s official ATS. The employer receives its application through its own process. For direct submissions to Alexanders Career Strategy, use a distinct, transparent CV-registration form and configured company recruitment inbox.
+
+Before launch, verify every official listing and Apply link; confirm the role is open; test the CV submission form end-to-end; confirm secure storage works; confirm the configured inbox receives a non-sensitive notification; confirm applicant emails are sent only after successful submission; confirm private CVs are never accessible through public URLs; and document any remaining configuration blockers. Do not claim that a website, email integration, form, storage, or application route works unless it has been implemented and tested.
+
+## 24. CONTINUATION RULE AND PRIORITY OF INSTRUCTIONS
+
+This is the consolidated master prompt for the entire Alexanders Career Strategy project. Use it as one coherent build specification. Continue the existing project if one exists; do not create a disconnected replacement, throw away functioning integrations, or reduce the work to a mockup. Inspect the current codebase and existing deploy configuration first, then preserve working components and add or revise what is needed.
+
+If any older passage conflicts with this final consolidated prompt, follow the latest and most explicit requirement in this document. In particular:
+- Final palette is forest green, black, and gold; old navy/blue branding is superseded.
+- Team photographs are displayed plainly and unblurred; all former blur/reveal instructions are superseded.
+- Team has five people, not three.
+- Alexander Divine has one public team email: `alexander.divine.hr@gmail.com`.
+- Piers Fisher has one public team email: `pier.fisher.hr@gmail.com`.
+- Keep the other final contacts exactly as listed in Section 22.
+- The suggested team specialties and bios are draft copy requiring owner confirmation, not verified facts.
+- Third-party jobs must use their official employer application destinations and must be checked again before publication.
+
+## 25. CAREERS AT ALEXANDERS CAREER STRATEGY — DEDICATED CAREERS PAGE
+
+Create a dedicated “Careers at Alexanders Career Strategy” page, suggested route `/careers`, inspired by the structure and UX of these pages:
+- Careers and culture: https://www.robertwalters.us/about-us/robert-walters-careers.html
+- Employee/career stories: https://www.robertwalters.us/about-us/robert-walters-careers/careers-stories.html
+- Jobs search: https://www.robertwalters.us/jobs.html
+- Employer enquiry: https://www.robertwalters.us/submit-a-vacancy.html
+
+Use the references only for general information architecture and interaction inspiration. Do not copy their exact page layouts, words, trademarks, proprietary graphics, employee photos, or logos. Use original Alexanders Career Strategy copy and the forest-green/black/gold style.
+
+### Hero: Build a Career That Shapes Leadership
+**Headline:** “Build a Career That Shapes Leadership”
+
+**Supporting text:** “At Alexanders Career Strategy, we believe exceptional businesses are built by exceptional people. We bring together professional insight, meaningful relationships, and a commitment to identifying the leaders who help organizations move forward.”
+
+Primary CTA: “Explore Career Opportunities” — scroll to genuine opportunities.
+Secondary CTA: “Meet Our Team” — navigate/scroll to the team section.
+
+Use a wide workplace or leadership photograph with a forest-green/black overlay if needed for text contrast. Keep all text as accessible HTML, not embedded into the image.
+
+### Introduction: More Than a Career. An Opportunity to Make an Impact.
+
+“Executive search is built on trust, judgment, curiosity, and the ability to understand people. At Alexanders Career Strategy, our work connects talented professionals with opportunities and organizations with the leadership they need to grow.
+
+We value thoughtful communication, professional integrity, continuous learning, and the ability to build lasting relationships. We aim to create an environment where people can contribute ideas, develop their capabilities, and take pride in the quality and impact of their work.”
+
+Use a two-column layout with supporting professional workplace imagery.
+
+### Why Alexanders Career Strategy?
+Create six elegant cards:
+
+**Meaningful Work** — “Contribute to work that connects organizations with leadership talent and helps professionals explore important career opportunities.”
+
+**Relationship-Driven Culture** — “Build trusted relationships through thoughtful communication, professional respect, and a genuine understanding of clients and candidates.”
+
+**Professional Development** — “Develop research, communication, market intelligence, candidate engagement, and executive recruitment capabilities through ongoing learning.”
+
+**Strategic Thinking** — “Learn to understand business needs, leadership requirements, talent markets, and the factors that contribute to a successful executive appointment.”
+
+**Integrity and Confidentiality** — “Work with respect for privacy, responsible information handling, and the sensitive nature of executive recruitment.”
+
+**Opportunity to Contribute** — “Bring ideas, initiative, and professional judgment to a business focused on thoughtful, high-quality search services.”
+
+Do not promise specific salary, benefits, promotion, training budgets, flexible work, office locations, or international transfer opportunities unless the owner confirms they are real.
+
+### The Principles That Guide Us
+Present four values:
+- **Integrity:** Communicate honestly, act responsibly, respect confidentiality, and do what is right for clients, candidates, and colleagues.
+- **Excellence:** Approach every assignment with care, professional discipline, attention to detail, and a commitment to quality.
+- **People First:** Recognize the individuals behind every CV, leadership appointment, organization, and career decision.
+- **Strategic Impact:** Understand the wider business context so work supports thoughtful hiring decisions and long-term goals.
+
+### A Thoughtful Approach to Executive Search
+Show four steps:
+1. **Understand** — Learn about the organization, its culture, leadership requirements, and strategic objectives.
+2. **Research** — Identify relevant talent markets and potential candidates whose experience aligns with the assignment.
+3. **Connect** — Build professional relationships and engage suitable candidates with discretion and respect.
+4. **Assess and Support** — Help clients evaluate alignment between candidate experience, leadership expectations, and organizational needs.
+
+CTA: “Explore Our Executive Search Services” linking to the existing Expertise/Services page.
+
+### People, Perspectives, and Professional Growth
+Provide an editorial section that can feature genuine team stories or original career articles. Suggested topics:
+- “What Makes a Career in Executive Search Rewarding?”
+- “The Skills Behind Effective Executive Recruitment”
+- “Building Trusted Relationships With Clients and Candidates”
+- “How Research and Market Intelligence Support Executive Search”
+- “Lessons in Professional Growth and Continuous Learning”
+
+Do not fabricate employee interviews, testimonials, personal anecdotes, quotations, or success stories. Until genuine approved stories exist, publish clearly identified editorial articles or omit unsupported story cards.
+
+### Career opportunities and career interest form
+Heading: “Explore Career Opportunities”
+
+Copy: “Interested in contributing to executive search, leadership recruitment, research, or client relationship development? Explore the opportunities available at Alexanders Career Strategy or introduce yourself for consideration when a suitable role becomes available.”
+
+Do not invent open internal vacancies. If none have been provided, show:
+
+**No Current Vacancies**
+“We are not advertising any open positions at the moment. You may still submit an expression of interest, and we can consider your information if a relevant opportunity becomes available.”
+
+CTA: “Register Your Interest”.
+
+Build a working career interest form with first name (required), last name (required), email address (required), optional phone, optional current job title, area of interest, optional LinkedIn URL, optional short introduction, optional CV upload with visible type/size limits, and required privacy acknowledgement/consent where appropriate. On submission, validate server-side, protect against spam, store CVs privately, notify only the configured recruitment inbox with minimal non-sensitive details, and show a success message only after the server confirms the submission has been accepted. Explain that submitting does not guarantee employment, representation, or an interview.
+
+### Careers page closing CTA
+**Headline:** “Your Next Chapter Could Start Here.”
+
+**Copy:** “If you care about people, professional excellence, and the impact of effective leadership, we would welcome the opportunity to hear from you.”
+
+Primary CTA: “Register Your Interest”. Secondary CTA: “Contact Our Team”.
+
+## 26. DYNAMIC WEBSITE CONTENT AND CENTRALIZED EDITING
+
+“Dynamic” must mean genuinely editable and connected to a real content/data source, not merely visual animation. Review the existing technology stack and reuse the CMS or data system already present. If there is no CMS, create a centralized content configuration or database/data layer with clear editing instructions. Do not add a large dependency without a clear need.
+
+At minimum, make these editable without changing scattered component markup:
+- Brand name, tagline, logos, colour tokens, navigation, footer links and public contact data.
+- Page headings, body copy, calls to action, imagery, SEO titles/descriptions, and published/unpublished state.
+- Expertise and industry cards.
+- Search process stages, employer form copy, candidate form copy, contact form copy, validation and confirmation messages.
+- Team member names, approved specialty/title/bio, public email, social links, photo path and order.
+- Careers page sections, career opportunities, editorial stories, and career interest form labels.
+- Insights articles including title, excerpt, full body, category, date where known, image/alt text, publication status and SEO details.
+- Jobs and vacancy records, their original summary, employer, source URL, official Apply URL, location, workplace type, employment type, salary only if disclosed, posting date, deadline, last-check date, status and expiry.
+
+Suggested content models, adapted to the current stack:
+- `siteSettings`: brandName, tagline, logoPath, publicContact, socialLinks, defaultSeoTitle, defaultSeoDescription.
+- `pages`: slug, title, heroHeading, heroText, heroImage, sections, CTA labels/URLs, SEO title/description, published state.
+- `contentSections`: pageSlug, sectionKey, heading, body, image, imageAlt, CTA label/URL, sortOrder, published.
+- `articles`: slug, title, excerpt, body, category, image, imageAlt, publishDate when known, status, SEO fields.
+- `teamMembers`: slug, name, approvedRole, approvedBio, imagePath, approved public email, socialLinks, displayOrder, published.
+- `jobs`: id, slug, title, employer, officialSourceUrl, officialApplyUrl, sourceType, location, workplaceType, employmentType, salary values/disclosure, postedAt, applicationDeadline, lastCheckedAt, status, specialization, seniority, summary, responsibilities, qualifications, benefits only when confirmed, expiryDate and updatedAt.
+
+Keep secret keys, CVs, privileged credentials, and private application data out of public content. If no CMS/admin interface is implemented, document how the owner should safely edit the central data file or database records. Do not present functionality such as saved jobs, user accounts, job alerts, salary calculators, application tracking, or live vacancy feeds unless it is implemented and tested.
+
+### Required dynamic on-page copy
+- Jobs page heading: “Find Your Next Opportunity”
+- Jobs intro: “Explore selected professional and leadership opportunities from employer career pages. Review the role requirements and use the official application link to submit your application directly to the hiring organization.”
+- Search placeholder: “Search by job title or keyword”
+- Supported filters: “Location,” “Specialization,” “Employment Type,” “Workplace Type,” “Salary Range,” “Industry,” and “Experience Level.” Display only filters supported by real data.
+- Search button: “Search Jobs”
+- Clear filters: “Clear Filters”
+- Job card: “View Role Details”
+- Primary Apply action: “Apply on Employer’s Website”
+- Separate optional candidate registration action: “Share My CV with Alexanders Career Strategy”
+- No results: “No current vacancies match your search. Try another keyword or adjust your filters.”
+- Closed role: “This opportunity may have closed or may no longer be accepting applications. Please check the employer’s official listing.”
+- Employer CTA: “Looking to Hire?” / “Tell us about your leadership or specialist hiring needs. Share the details of the role and our team can review your enquiry.” / Button “Submit a Vacancy” or “Discuss a Hiring Need”. Choose one consistent label for the relevant form and keep it editable.
+- Candidate CTA: “Ready for Your Next Career Move?” / “Share your CV and areas of interest so Alexanders Career Strategy can consider your profile for relevant future search opportunities. Submission does not guarantee representation or an interview.” / Button “Register Your Resume” or “Register Your Interest”. Choose one consistent label for the relevant form and keep it editable.
+- Careers at our firm heading: “Build a Career That Shapes Leadership”.
+- Team heading: “Meet Our Team”.
+- Team intro: “Executive search is built on trust, sound judgment, and meaningful relationships. Meet the people behind Alexanders Career Strategy.”
+- Career form button: “Submit Career Interest”. Employer form button: “Submit Hiring Enquiry”.
+- Success message may appear only after backend success: “Thank you. Your submission has been received.”
+- Failure message: “We could not submit your information right now. Please try again, or use the published contact method.” Do not expose stack traces or implementation secrets.
+
+## 27. USER-SUPPLIED REFERENCE PICTURES — REQUIRED DESIGN INPUT
+
+The owner may attach photographs, screenshots, mockups, or visual examples alongside this master prompt. Inspect every supplied picture before deciding how to use it. Treat those images as part of the design brief, not as optional noise.
+
+For every supplied image:
+- Determine whether it indicates a hero/banner, page/section layout, background, colour mood, image crop, article thumbnail, real team portrait, icon style, card design, or other component.
+- Use filenames, captions and surrounding context where available. If the intended placement is unclear, use it as general inspiration and avoid unsupported assumptions about business facts.
+- Match each picture to its most relevant existing page/section instead of reusing one image indiscriminately.
+- If the owner supplies an actual photo intended for the site, use it as the asset where appropriate and rights/consent permit. Do not replace a real team photo with stock or generated imagery.
+- If a supplied item is a screenshot/mockup/reference from another site, recreate the relevant layout as real responsive, accessible webpage components. Do not publish the screenshot as the webpage itself or flatten forms and navigation into a single image.
+- Follow useful composition, subject placement, crop, contrast, whitespace and hierarchy while maintaining the green/black/gold identity and original website copy.
+- If written instructions conflict with a reference image, obey the written instructions, especially current colours, plainly displayed team photos, accessibility, secure forms, and existing site functionality.
+- Do not infer identities, job titles, credentials, client relationships, endorsements, testimonials, addresses, or company history from images.
+- If an image is low-resolution, watermarked, or unsuitable for use, use it as inspiration and explain what replacement asset is required; do not remove watermarks or violate rights.
+- In the final implementation summary, list each reference image inspected, which section it informs, whether it was used as an actual asset or inspiration, and any missing assets.
+
+## 28. PHOTOGRAPHY PLAN AND DOWNLOAD SOURCES
+
+Use a deliberate selection of high-quality images, not a different stock photo in every card. Do not hotlink downloaded images from third-party sites in production. Download the approved image, retain a note of its source/photographer/license, optimize it as WebP/AVIF where supported, place it in the project assets/public folder, and use local asset paths.
+
+Suggested asset names and intended locations:
+- `public/images/hero-executive-team.webp` — homepage hero.
+- `public/images/executive-meeting.webp` — About Us / Our Approach.
+- `public/images/search-consultation.webp` — Our Expertise / For Employers / search process.
+- `public/images/candidate-career-conversation.webp` — For Candidates and candidate support.
+- `public/images/careers-collaboration.webp` — Careers at Alexanders Career Strategy.
+- `public/images/office-environment.webp` — company culture or contact, only if useful.
+- `public/images/team/alexander-divine.webp` — actual user-supplied portrait only.
+- `public/images/team/paul-alexander.webp` — actual user-supplied portrait only.
+- `public/images/team/piers-fisher.webp` — actual user-supplied portrait only.
+- `public/images/team/fred-geerken.webp` — actual user-supplied portrait only.
+- `public/images/team/eunice-angelo.webp` — actual user-supplied portrait only.
+
+These are suggested filenames, not evidence that files already exist. Do not create broken image paths, use placeholders in production without owner approval, or fabricate team portraits.
+
+### Suggested individual photo pages
+Open the page, preview the image, and use its legitimate download control. Confirm the photo remains available and is suitable before use:
+- Possible wide hero / leadership image: https://www.pexels.com/photo/professional-business-team-meeting-in-modern-office-36733363/
+- Possible collaboration image: https://www.pexels.com/photo/a-group-of-people-having-a-meeting-in-the-office-7710140/
+- Possible professional meeting / consulting image: https://www.pexels.com/photo/professionals-in-a-business-meeting-7647957/
+- Possible collaborative workplace image: https://www.pexels.com/photo/diverse-business-team-working-on-laptop-in-modern-office-3931504/
+
+### Additional Pexels collections
+- Corporate portraits: https://www.pexels.com/search/corporate%20portrait/
+- Business meetings: https://www.pexels.com/search/business%20meeting/
+- Modern office: https://www.pexels.com/search/modern%20office/
+- Professional interviews: https://www.pexels.com/search/job%20interview/
+- Healthcare professionals: https://www.pexels.com/search/medical%20professionals/
+- Technology teams: https://www.pexels.com/search/technology%20team/
+- Finance professionals: https://www.pexels.com/search/finance%20team/
+
+### Additional Unsplash collections
+- Corporate headshots: https://unsplash.com/s/photos/corporate-headshot
+- Modern office: https://unsplash.com/s/photos/modern-office
+- Business meetings: https://unsplash.com/s/photos/business-meeting
+- Professional teams: https://unsplash.com/s/photos/business-team
+
+### License references
+- Pexels license: https://www.pexels.com/legal-pages/license/
+- Pexels commercial-use FAQ: https://help.pexels.com/hc/en-us/articles/360042295214-Can-I-use-the-photos-and-videos-for-a-commercial-project
+- Unsplash license: https://unsplash.com/license
+
+Check the applicable license and any model/property/trademark considerations for every selected photo. Do not imply the pictured person endorses the company. Do not present a stock photo as an actual team member, client, testimonial, or evidence of a working relationship. Keep a simple source and rights record.
+
+### How to use images
+- Homepage hero: wide leadership/meeting image with forest-green/black overlay as needed; keep text as HTML.
+- About Us / Our Approach: collaborative meeting image beside the original company copy.
+- Expertise / Services: prefer a consistent icon system and only use selective industry imagery; avoid cluttering every card.
+- For Employers: professional consultation or leadership discussion image.
+- For Candidates: career conversation or CV review image.
+- Careers page: workplace collaboration image, without implying it is the actual company office or employees.
+- Insights: coherent topic-relevant thumbnails using a consistent aspect ratio.
+- Meet Our Team: actual user-supplied photographs only; always display plainly and unblurred.
+
+## 29. CAREER AND NAVIGATION LINK LABELS; DOMAIN GUIDANCE
+
+Recommended navigation label for the team directory: “Our Team”. Recommended page/section heading: “Meet Our Team”. Recommended team contact button: “Contact”. Recommended Careers navigation label: “Careers”. Recommended careers page heading: “Careers at Alexanders Career Strategy”.
+
+Suggested brand/domain name for public sharing: `www.alexanderscareerstrategy.com`. This is only a suggestion and availability has not been verified. Do not claim this domain is registered or connected unless confirmed. If the website is deployed on Netlify before a custom domain is registered and connected, use the actual verified Netlify address (for example, the actual `https://[site-name].netlify.app` URL) rather than inventing a site URL.
+
+The primary domain and canonical URL should be centrally configurable as `SITE_URL`. Once the owner registers and connects a real domain, use it consistently in canonical links, form email links, metadata and public contact materials.
+
+## 30. FINAL SECURITY, ACCURACY AND LAUNCH RULES
+
+- Keep all service credentials and secret keys on the server. Never expose `SUPABASE_SERVICE_ROLE_KEY`, email-provider API keys, or other secrets in frontend code or a public repository.
+- Preferred architecture where compatible with the existing project: Netlify deployment and Functions; Supabase Postgres for enquiry metadata; a private Supabase Storage bucket for CV files; Resend for transactional email. Preserve another already-working, secure stack rather than replacing it without a reason.
+- Environment variables if that stack is used: `SUPABASE_URL`, `SUPABASE_SERVICE_ROLE_KEY`, `SUPABASE_CV_BUCKET`, `RESEND_API_KEY`, `EMAIL_FROM`, `EMPLOYER_NOTIFICATION_EMAIL`, `CANDIDATE_NOTIFICATION_EMAIL`, and `SITE_URL`.
+- Public team emails do not automatically become backend notification addresses. Explicitly configure and test the intended employer, candidate, and general contact recipient addresses with the owner.
+- Validate forms and file uploads server-side; define file-type and file-size limits; apply spam/rate limiting; keep CVs private; avoid public CV URLs and CV attachments in ordinary notification emails; apply access controls and a retention/deletion process.
+- Do not show a success message unless the server confirms the submission is processed. Do not tell visitors their application reached an employer unless that process has been implemented and verified.
+- Review privacy and terms against the actual business and applicable law; treat generated legal text as a framework for qualified legal review, not final legal advice.
+- Never invent client names, partnerships, exclusive recruitment mandates, placement counts, reviews, employee stories, awards, company history, salaries, benefits, qualifications, or open vacancies.
+- Check the current official source and status of every third-party job before publication; remove/mark closed vacancies as soon as appropriate. The starter listings in Section 23 were captured in the earlier research process and are not guaranteed to remain open.
+- The Agilent vacancy in the starter set previously displayed a 30 October 2026 deadline; recheck it immediately because the prompt is consolidated on 29 October 2026. Do not publish it as active after its deadline unless the official employer listing confirms an extension and is still accepting applications.
+- Deliver a README or equivalent with local setup, how to edit page/job/team content, how to configure environment variables, deployment and troubleshooting.
+- Final report must state what was actually implemented, which source links/jobs were checked and when, which reference images were used, which forms/email/storage paths passed end-to-end testing, which assets/configuration are missing, and what still blocks safe production launch.
+
+## 31. FINAL COMPLETION CHECKLIST — THE SITE IS NOT DONE UNTIL TESTED
+
+1. Every page above exists and contains the appropriate original copy, not an empty scaffold.
+2. Forest-green, black, and gold branding is applied consistently to all existing/new pages.
+3. Navigation, CTAs, content links, forms, socials, and job links work.
+4. Careers page and dynamic jobs board are implemented as real page components.
+5. Meet Our Team lists Alexander Divine, Paul Alexander, Piers Fisher, Fred Geerken, and Eunice Angelo; all available real photos are plain and unblurred.
+6. Contact icons are polished, accessible, keyboard/touch friendly, and open the correct person's details.
+7. Public team emails and social links exactly match Section 22; alternate email addresses must not be displayed.
+8. Employer enquiry, candidate CV registration, general contact, and career interest forms are validated and tested.
+9. Real notification emails arrive at explicitly configured inboxes; private CV storage and access permissions are tested.
+10. Each third-party job has an active official application destination and truthful status, or is clearly marked closed/unverified and has no live Apply action.
+11. User-supplied images are reviewed and assigned to sections; photo sources and licenses are recorded.
+12. Responsive layouts, accessibility, keyboard navigation, colour contrast, image loading/performance, metadata, sitemap, robots.txt, 404 page, console errors and broken links are checked.
+13. Legal pages receive appropriate review.
+14. Owner receives a concise truthful completion report and documented steps for maintaining dynamic content and vacancies.
+
+Build the actual working website in the available project. Do not stop at a homepage, static cards, visual prototype, or a list of instructions. Do not claim deployment, successful email delivery, secure storage, functioning dynamic editing, active jobs, or form processing unless each has actually been implemented and verified.
+

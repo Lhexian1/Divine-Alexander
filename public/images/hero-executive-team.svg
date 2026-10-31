@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" fill="none">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0B2A1E"/>
+      <stop offset="55%" stop-color="#123D2B"/>
+      <stop offset="100%" stop-color="#101311"/>
+    </linearGradient>
+    <linearGradient id="goldLine" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E0C98B" stop-opacity="0.8"/>
+      <stop offset="50%" stop-color="#C6A15B" stop-opacity="0.4"/>
+      <stop offset="100%" stop-color="#C6A15B" stop-opacity="0.05"/>
+    </linearGradient>
+    <radialGradient id="warmGlow" cx="75%" cy="30%" r="55%">
+      <stop offset="0%" stop-color="#C6A15B" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#0B2A1E" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="1200" height="800" fill="url(#bgGrad)"/>
+  <rect width="1200" height="800" fill="url(#warmGlow)"/>
+  <!-- Architectural grid & boardroom perspective lines -->
+  <g stroke="url(#goldLine)" stroke-width="1">
+    <line x1="140" y1="0" x2="140" y2="800"/>
+    <line x1="420" y1="0" x2="420" y2="800"/>
+    <line x1="780" y1="0" x2="780" y2="800"/>
+    <line x1="1060" y1="0" x2="1060" y2="800"/>
+    <line x1="0" y1="180" x2="1200" y2="180"/>
+    <line x1="0" y1="560" x2="1200" y2="560"/>
+  </g>
+  <!-- Editorial architectural colonnade & executive table silhouette -->
+  <rect x="200" y="120" width="800" height="520" rx="4" fill="#101311" fill-opacity="0.45" stroke="#C6A15B" stroke-opacity="0.35" stroke-width="1.5"/>
+  <rect x="240" y="160" width="340" height="440" fill="#123D2B" fill-opacity="0.5" stroke="#C6A15B" stroke-opacity="0.2"/>
+  <rect x="610" y="160" width="350" height="205" fill="#0B2A1E" fill-opacity="0.7" stroke="#C6A15B" stroke-opacity="0.25"/>
+  <rect x="610" y="395" width="350" height="205" fill="#0B2A1E" fill-opacity="0.7" stroke="#C6A15B" stroke-opacity="0.25"/>
+  <!-- Abstract executive figures in conversation -->
+  <circle cx="360" cy="310" r="38" fill="#C6A15B" fill-opacity="0.85"/>
+  <path d="M295 450 C295 390 425 390 425 450 L440 560 L280 560 Z" fill="#E0C98B" fill-opacity="0.22" stroke="#C6A15B" stroke-width="1.5"/>
+  <circle cx="475" cy="335" r="32" fill="#E0C98B" fill-opacity="0.65"/>
+  <path d="M420 465 C420 415 530 415 530 465 L540 560 L410 560 Z" fill="#123D2B" stroke="#C6A15B" stroke-opacity="0.6" stroke-width="1.5"/>
+  <!-- Strategic compass & network nodes -->
+  <circle cx="785" cy="262" r="56" stroke="#C6A15B" stroke-width="1.5" stroke-dasharray="4 4"/>
+  <circle cx="785" cy="262" r="32" fill="#C6A15B" fill-opacity="0.18" stroke="#E0C98B" stroke-width="1.5"/>
+  <path d="M785 215 L796 252 L832 262 L796 272 L785 309 L774 272 L738 262 L774 252 Z" fill="#C6A15B" fill-opacity="0.75"/>
+  <!-- Executive horizon bars -->
+  <line x1="650" y1="455" x2="890" y2="455" stroke="#E0C98B" stroke-width="2" stroke-opacity="0.8"/>
+  <line x1="650" y1="490" x2="920" y2="490" stroke="#C6A15B" stroke-width="1.5" stroke-opacity="0.5"/>
+  <line x1="650" y1="525" x2="830" y2="525" stroke="#C6A15B" stroke-width="1.5" stroke-opacity="0.35"/>
+  <circle cx="890" cy="455" r="5" fill="#E0C98B"/>
+  <circle cx="920" cy="490" r="5" fill="#C6A15B"/>
+  <circle cx="830" cy="525" r="5" fill="#C6A15B"/>
+</svg>

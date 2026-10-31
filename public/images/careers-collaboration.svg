@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" fill="none">
+  <rect width="1200" height="700" fill="#0B2A1E"/>
+  <path d="M0 520 L1200 220 L1200 700 L0 700 Z" fill="#123D2B" fill-opacity="0.55"/>
+  <g stroke="#C6A15B" stroke-opacity="0.3" stroke-width="1.5">
+    <rect x="100" y="90" width="1000" height="520" rx="4"/>
+    <line x1="433" y1="90" x2="433" y2="610"/>
+    <line x1="766" y1="90" x2="766" y2="610"/>
+  </g>
+  <!-- Ascending leadership pillars -->
+  <rect x="180" y="360" width="170" height="190" fill="#101311" fill-opacity="0.55" stroke="#C6A15B" stroke-width="1.5"/>
+  <rect x="515" y="270" width="170" height="280" fill="#101311" fill-opacity="0.65" stroke="#C6A15B" stroke-width="1.5"/>
+  <rect x="850" y="180" width="170" height="370" fill="#101311" fill-opacity="0.75" stroke="#E0C98B" stroke-width="1.75"/>
+  <circle cx="265" cy="310" r="18" fill="#C6A15B"/>
+  <circle cx="600" cy="220" r="18" fill="#C6A15B"/>
+  <circle cx="935" cy="135" r="22" fill="#E0C98B"/>
+  <path d="M265 310 L600 220 L935 135" stroke="#E0C98B" stroke-width="2" stroke-dasharray="6 6"/>
+</svg>

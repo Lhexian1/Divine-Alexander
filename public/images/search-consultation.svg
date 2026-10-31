@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" fill="none">
+  <rect width="1000" height="700" fill="#0B2A1E"/>
+  <rect x="60" y="60" width="880" height="580" fill="#123D2B" fill-opacity="0.4" stroke="#C6A15B" stroke-opacity="0.3" stroke-width="1.5"/>
+  <!-- Talent mapping & search consultation network -->
+  <g stroke="#C6A15B" stroke-opacity="0.25" stroke-width="1">
+    <circle cx="500" cy="350" r="220"/>
+    <circle cx="500" cy="350" r="150"/>
+    <circle cx="500" cy="350" r="80"/>
+    <line x1="220" y1="350" x2="780" y2="350"/>
+    <line x1="500" y1="90" x2="500" y2="610"/>
+  </g>
+  <!-- Focal nodes -->
+  <circle cx="500" cy="350" r="24" fill="#C6A15B"/>
+  <circle cx="385" cy="245" r="14" fill="#E0C98B"/>
+  <circle cx="640" cy="290" r="16" fill="#E0C98B"/>
+  <circle cx="590" cy="465" r="14" fill="#C6A15B"/>
+  <circle cx="330" cy="430" r="12" fill="#E0C98B" fill-opacity="0.7"/>
+  <g stroke="#E0C98B" stroke-width="1.5" stroke-opacity="0.75">
+    <line x1="500" y1="350" x2="385" y2="245"/>
+    <line x1="500" y1="350" x2="640" y2="290"/>
+    <line x1="500" y1="350" x2="590" y2="465"/>
+    <line x1="500" y1="350" x2="330" y2="430"/>
+  </g>
+</svg>

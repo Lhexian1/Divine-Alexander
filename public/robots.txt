@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Private API and submission endpoints
+Disallow: /api/
+Disallow: /.netlify/
+
+Sitemap: https://www.alexanderscareerstrategy.com/sitemap.xml

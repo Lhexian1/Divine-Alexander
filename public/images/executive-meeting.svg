@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" fill="none">
+  <defs>
+    <linearGradient id="execBg" x1="0" y1="0" x2="1000" y2="700" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#101311"/>
+      <stop offset="60%" stop-color="#0B2A1E"/>
+      <stop offset="100%" stop-color="#123D2B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="700" fill="url(#execBg)"/>
+  <g stroke="#C6A15B" stroke-opacity="0.18" stroke-width="1">
+    <rect x="80" y="70" width="840" height="560" rx="4"/>
+    <line x1="80" y1="220" x2="920" y2="220"/>
+    <line x1="500" y1="70" x2="500" y2="630"/>
+  </g>
+  <!-- Conference table & executive alignment geometry -->
+  <ellipse cx="500" cy="390" rx="280" ry="110" fill="#123D2B" fill-opacity="0.55" stroke="#C6A15B" stroke-width="1.75" stroke-opacity="0.7"/>
+  <ellipse cx="500" cy="390" rx="210" ry="72" fill="#0B2A1E" stroke="#E0C98B" stroke-width="1" stroke-opacity="0.4"/>
+  <!-- Seated leadership nodes around the table -->
+  <circle cx="500" cy="240" r="24" fill="#C6A15B" fill-opacity="0.85"/>
+  <circle cx="290" cy="310" r="20" fill="#E0C98B" fill-opacity="0.65"/>
+  <circle cx="710" cy="310" r="20" fill="#E0C98B" fill-opacity="0.65"/>
+  <circle cx="290" cy="475" r="20" fill="#C6A15B" fill-opacity="0.65"/>
+  <circle cx="710" cy="475" r="20" fill="#C6A15B" fill-opacity="0.65"/>
+  <circle cx="500" cy="540" r="22" fill="#E0C98B" fill-opacity="0.8"/>
+  <!-- Connection lines -->
+  <g stroke="#E0C98B" stroke-opacity="0.4" stroke-width="1.2" stroke-dasharray="3 5">
+    <line x1="500" y1="264" x2="500" y2="518"/>
+    <line x1="310" y1="315" x2="690" y2="470"/>
+    <line x1="690" y1="315" x2="310" y2="470"/>
+  </g>
+  <circle cx="500" cy="390" r="10" fill="#E0C98B"/>
+</svg>

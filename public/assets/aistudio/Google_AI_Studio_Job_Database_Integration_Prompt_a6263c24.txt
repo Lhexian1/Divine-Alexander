@@ -1,0 +1,68 @@
+GOOGLE AI STUDIO IMPLEMENTATION PROMPT
+
+You are an expert full-stack engineer, product designer, and database architect. Work inside the EXISTING Alexanders Career Strategy website project. Your task is to EXPAND the current jobs database and job-board experience by adding the 120 vacancy records in this file. Do not rebuild the website from scratch, do not replace the existing database, and do not remove or overwrite any existing jobs, applications, candidate records, employer submissions, authentication, or working integrations.
+
+FIRST: inspect the current project before making changes. Identify the framework, database, ORM or data layer, current job schema, API routes, authentication and admin controls, application workflow, storage provider, email notifications, and existing job-board UI. Reuse the established architecture and visual system. If the project already has a jobs table or collection, extend it safely with migrations or compatible fields rather than creating a disconnected second database. Preserve existing records and relationships.
+
+JOB DATA IMPORT:
+1. Import all 120 numbered vacancy records from the section titled “JOB LISTINGS” in this file into the existing jobs database.
+2. Preserve the exact job title, employer, industry category, location, salary text, employment-type text, work arrangement, and vacancy notes supplied in each record.
+3. Create structured fields where possible: id, slug, title, employerName, category, location, employmentType, workArrangement, salaryMin, salaryMax, salaryDisplay, companyOverview, roleOverview, responsibilities[], qualifications[], applicationUrl, sourceUrl, sourceType, postedAt, deadlineAt, status, verificationStatus, createdAt, updatedAt.
+4. Where salary is not disclosed, store salaryMin and salaryMax as null and display “Salary not disclosed” or “Not provided by employer.” Do not calculate, infer, or invent salary values.
+5. Where the exact application URL was not provided, keep applicationUrl null and show an administrator-only “Application link required” warning. Never create a fake URL or link all roles to a generic homepage.
+6. The descriptions in this file are editorial drafts, not official employer copy. Store them as draft content and mark the records as verificationRequired until an administrator confirms the employer’s current posting and replaces or approves the content.
+7. Do not claim that an employer has engaged Alexanders Career Strategy, authorized the firm to recruit, or provided a vacancy unless the project already contains documented authorization. Do not imply a partnership or endorsement.
+8. Use idempotent import logic. Match existing roles using a stable source key or a conservative combination of normalized title, employer, and location. Do not create duplicates. Do not overwrite an existing verified job with a draft record. Create an import report showing inserted, updated, skipped, and duplicate records.
+
+JOB BOARD DISPLAY AND “SHOW MORE” BEHAVIOR:
+1. In each current job-list view (including the main All Jobs view and filtered/category results), display only the first SIX job cards initially.
+2. Place a clearly visible “Show More” control directly BELOW the sixth visible card, aligned consistently with the existing design.
+3. Clicking “Show More” reveals the NEXT SIX jobs in the current result set without navigating away, losing the selected filters, or refreshing the page. Repeat in increments of six until all matching jobs are shown.
+4. When all matching jobs are visible, hide the “Show More” control or replace it with a subtle “You’ve reached the end” message. Do not show a non-functional button.
+5. When a user changes search terms, category, location, seniority, salary, or work arrangement filters, reset the visible count to six and apply the filters to the complete database, not merely the currently rendered cards.
+6. Keep the current search, filter, sorting, job-detail, and application functionality working. If there is server-side pagination already, integrate the six-at-a-time behavior with it rather than loading the entire database unnecessarily.
+7. Add a result count such as “Showing 6 of 120 opportunities” and update it as more jobs are revealed. The count must reflect the active filtered result set.
+8. Ensure keyboard accessibility, focus handling, screen-reader labels, responsive layout, and proper loading / empty / error states.
+
+JOB CARD AND DETAIL PAGE:
+- Each card should show job title, employer, location, category, work arrangement, employment type, and salary only when supplied and verified.
+- Include a “View Details” control that opens a dedicated detail page or existing job-detail drawer using the current site conventions.
+- On detail pages, show the company overview, role overview, responsibilities, qualifications, and application information.
+- Do not display draft responsibilities or qualifications as employer-confirmed requirements. Clearly label unverified content “Job information awaiting verification” or keep it unpublished from the public view according to the site's existing draft workflow.
+- If no verified applicationUrl exists, do not display a working-looking Apply button. Instead show “Application details coming soon” or keep the application action disabled with an explanation.
+- For verified listings with a valid exact employer application URL, show “Apply on Employer Website” and open the URL safely in a new tab. Keep the website’s own CV registration and employer vacancy submission workflows separate from third-party employer applications.
+
+ADMIN DASHBOARD:
+- Add a manageable Jobs area to the existing admin dashboard, matching current authentication and authorization rules.
+- Admins must be able to review and approve draft imports; edit job title, employer, category, location, salary, work arrangement, employment type, company overview, role overview, responsibilities, qualifications, source URL, and application URL; mark a role as Draft, Verification Required, Active, Paused, Filled, or Closed; and record a last-verified date and verifier.
+- Add filters for status, category, employer, and verification requirement.
+- Add a bulk action to approve or close selected jobs, but require a confirmation step for destructive or bulk status changes.
+- Keep an audit trail for edits and status changes where the existing application supports it.
+
+DATABASE SAFETY AND DATA QUALITY:
+- Back up or snapshot relevant data before migrations or bulk imports where the current stack permits.
+- Use transactions for import and migrations; validate required fields and handle failures gracefully.
+- Preserve every pre-existing job and its application relationships.
+- Do not overwrite existing applicant data, uploaded CVs, or employer-submitted vacancies.
+- Sanitize and validate user-provided data; apply role-based access control to admin actions.
+- Protect private application documents and credentials. Never expose storage keys or secrets in frontend code.
+- Add database indexes for fields used in search and filters, where appropriate.
+- Implement pagination or lazy loading efficiently for performance.
+
+DESIGN:
+Maintain Alexanders Career Strategy’s established premium executive-search identity and current site styling. Use its existing green, black, white, and gold palette, typography, spacing, and navigation. The result should feel like a polished executive-search career portal, not a generic job-board template. Make the “Show More” button visually clear but consistent with the brand. Ensure the page is responsive on desktop, tablet, and mobile.
+
+QUALITY ASSURANCE — COMPLETE BEFORE FINISHING:
+1. Confirm exactly 120 new source records were considered in the import report.
+2. Confirm existing jobs and candidate/application data remain intact.
+3. Confirm duplicate detection works and a second import does not create duplicate records.
+4. Confirm six jobs appear initially and “Show More” reveals exactly six more at a time.
+5. Test the behavior with all jobs, each category, search results, and combinations of filters.
+6. Confirm the count and end-of-list state are correct.
+7. Confirm a missing or unverified application URL never creates a misleading Apply action.
+8. Confirm draft jobs cannot accidentally appear as verified active vacancies if the current site supports publication states.
+9. Test the admin editing and approval workflow.
+10. Run the project's existing tests, type checks, linting, and build. Fix regressions introduced by your changes.
+
+DELIVERABLE:
+Make the implementation in the existing project, not just a mockup. Provide a concise change summary, database migration/import details, the import report, files changed, tests performed, and any records that still need employer verification or application URLs. Do not claim a feature works unless it has been implemented and tested.
