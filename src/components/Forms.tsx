@@ -1072,18 +1072,67 @@ export const CandidateCvForm: React.FC<{
 };
 
 // ============================================================================
-// 3. GENERAL CONTACT FORM (Clean Original Layout)
+// 3. GENERAL CONTACT FORM — RMA 5-Step Numbered Executive Contact Architecture
+//    Matches https://rmasearchfirm.com/contact & Screenshots (264) and (265)
 // ============================================================================
+const RMA_ORGANIZATION_TYPES = [
+  'Corporation',
+  'Global Corporation',
+  'Government',
+  'Nonprofit',
+  'Association',
+  'Cooperative',
+  'Small Business',
+  'Start-Up',
+  'Private Equity',
+  'Private Holdings',
+  'Staffing or Employment Agency',
+  'Educational Institute',
+  'Research Institution',
+  'Tribal Nation',
+  'Other',
+];
+
 export const GeneralContactForm: React.FC<{ onNavigate?: (path: string) => void }> = ({
   onNavigate,
 }) => {
-  const [fullName, setFullName] = useState('');
+  // 1. Contact Information
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
-  const [organization, setOrganization] = useState('');
-  const [enquiryType, setEnquiryType] = useState('');
+  const [confirmEmail, setConfirmEmail] = useState('');
+  const [mobilePhone, setMobilePhone] = useState('');
+  const [workPhone, setWorkPhone] = useState('');
+
+  // 2. Client Type
+  const [clientType, setClientType] = useState<'Employer' | 'Job Seeker'>('Employer');
+
+  // 3A. Employer — Company Information
+  const [positionTitle, setPositionTitle] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [industry, setIndustry] = useState('');
+  const [organizationType, setOrganizationType] = useState('Corporation');
+  const [otherOrganizationType, setOtherOrganizationType] = useState('');
+
+  // 3B. Job Seeker — Candidate Profile (Significantly Different + Optional Résumé Upload)
+  const [candidateCurrentTitle, setCandidateCurrentTitle] = useState('');
+  const [candidateTargetLevel, setCandidateTargetLevel] = useState(
+    'C-Suite / Executive Leadership (CEO, COO, CFO, CTO, CMO)'
+  );
+  const [candidateSpecialization, setCandidateSpecialization] = useState('');
+  const [candidatePreferredLocation, setCandidatePreferredLocation] = useState('');
+  const [candidateLinkedIn, setCandidateLinkedIn] = useState('');
+  const [selectedCvFile, setSelectedCvFile] = useState<File | null>(null);
+  const [cvMeta, setCvMeta] = useState<CvFileMetadata | null>(null);
+
+  // 4. Subject & Message
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
-  const [privacyAccepted, setPrivacyAccepted] = useState(false);
+
+  // 5. Contact Authorization & CAPTCHA
+  const [consentAccepted, setConsentAccepted] = useState(false);
+  const [captchaVerified, setCaptchaVerified] = useState(false);
+  const [captchaChecking, setCaptchaChecking] = useState(false);
   const [honeypot, setHoneypot] = useState('');
 
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -1094,26 +1143,128 @@ export const GeneralContactForm: React.FC<{ onNavigate?: (path: string) => void 
     submissionId: string;
   } | null>(null);
 
+  const handleCaptchaToggle = () => {
+    if (captchaVerified) {
+      setCaptchaVerified(false);
+      return;
+    }
+    setCaptchaChecking(true);
+    window.setTimeout(() => {
+      setCaptchaChecking(false);
+      setCaptchaVerified(true);
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.captcha;
+        return next;
+      });
+    }, 320);
+  };
+
+  const handleCvFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0] || null;
+    if (!file) {
+      setSelectedCvFile(null);
+      setCvMeta(null);
+      return;
+    }
+    const meta: CvFileMetadata = {
+      fileName: file.name,
+      mimeType: file.type,
+      sizeBytes: file.size,
+    };
+    const err = validateCvFile(meta);
+    if (err) {
+      setErrors((prev) => ({ ...prev, cvFile: err }));
+    } else {
+      setErrors((prev) => {
+        const next = { ...prev };
+        delete next.cvFile;
+        return next;
+      });
+    }
+    setSelectedCvFile(file);
+    setCvMeta(meta);
+  };
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setServerError(null);
 
+    const fullName = `${firstName.trim()} ${lastName.trim()}`.trim();
+    const fieldErrors: Record<string, string> = {};
+
+    if (!firstName.trim() || !lastName.trim()) {
+      fieldErrors.fullName = 'Please enter both your First and Last name.';
+    }
+    if (!email.trim()) {
+      fieldErrors.email = 'Please enter your email address.';
+    } else if (confirmEmail.trim() && email.trim().toLowerCase() !== confirmEmail.trim().toLowerCase()) {
+      fieldErrors.confirmEmail = 'Confirm Email does not match Enter Email.';
+    }
+    if (!consentAccepted) {
+      fieldErrors.privacyAccepted =
+        'Please check the Contact Authorization box to confirm your consent before submitting.';
+    }
+    if (!captchaVerified) {
+      fieldErrors.captcha = 'Please complete the CAPTCHA verification ("I\'m not a robot").';
+    }
+
+    const effectiveSubject =
+      subject.trim() ||
+      (clientType === 'Employer'
+        ? `Employer Executive Search Inquiry${companyName ? ` — ${companyName}` : ''}`
+        : `Job Seeker Career Introduction${candidateCurrentTitle ? ` — ${candidateCurrentTitle}` : ''}`);
+
+    const structuredDetails =
+      clientType === 'Employer'
+        ? [
+            `Client Type: Employer`,
+            `Mobile Phone: ${mobilePhone || 'Not provided'}`,
+            `Work Phone: ${workPhone || 'Not provided'}`,
+            `Position / Title: ${positionTitle || 'Not specified'}`,
+            `Company Name: ${companyName || 'Not specified'}`,
+            `Industry: ${industry || 'Not specified'}`,
+            `Organization Type: ${organizationType}${otherOrganizationType ? ` (${otherOrganizationType})` : ''}`,
+          ].join(' | ')
+        : [
+            `Client Type: Job Seeker`,
+            `Mobile Phone: ${mobilePhone || 'Not provided'}`,
+            `Work Phone: ${workPhone || 'Not provided'}`,
+            `Current / Recent Title: ${candidateCurrentTitle || 'Not specified'}`,
+            `Target Seniority Level: ${candidateTargetLevel || 'Not specified'}`,
+            `Industry / Functional Focus: ${candidateSpecialization || 'Not specified'}`,
+            `Preferred U.S. Location: ${candidatePreferredLocation || 'Not specified'}`,
+            `LinkedIn URL: ${candidateLinkedIn || 'Not provided'}`,
+            `Optional Résumé / CV: ${cvMeta ? `${cvMeta.fileName} (${(cvMeta.sizeBytes / 1024).toFixed(1)} KB)` : 'Not attached (Optional)'}`,
+          ].join(' | ');
+
+    const effectiveMessage =
+      message.trim().length >= 10
+        ? `${message.trim()}\n\n---\n${structuredDetails}`
+        : `${message.trim() ? `${message.trim()}\n\n` : ''}${structuredDetails}`;
+
     const payload = {
       fullName,
-      email,
-      organization,
-      enquiryType,
-      subject,
-      message,
-      privacyAccepted,
+      email: email.trim(),
+      organization:
+        clientType === 'Employer'
+          ? companyName.trim() || organizationType
+          : candidateCurrentTitle.trim() || 'Executive Candidate',
+      enquiryType:
+        clientType === 'Employer' ? 'Employer Search Enquiry' : 'Candidate Introduction',
+      subject: effectiveSubject,
+      message: effectiveMessage,
+      privacyAccepted: consentAccepted,
       honeypot,
     };
 
     const validation = validateContactEnquiry(payload);
-    if (!validation.valid) {
-      setErrors(validation.errors);
+    const mergedErrors = { ...validation.errors, ...fieldErrors };
+
+    if (Object.keys(mergedErrors).length > 0) {
+      setErrors(mergedErrors);
       setServerError(
-        'We could not submit your message. Please check your information and try again.'
+        'Please complete the required fields, check the Contact Authorization consent, and verify the CAPTCHA box.'
       );
       return;
     }
@@ -1122,10 +1273,19 @@ export const GeneralContactForm: React.FC<{ onNavigate?: (path: string) => void 
     setSubmitting(true);
 
     try {
+      let cvBase64: string | undefined;
+      if (selectedCvFile) {
+        cvBase64 = await fileToBase64(selectedCvFile);
+      }
+
       const res = await fetch('/api/submissions/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
+        body: JSON.stringify({
+          ...payload,
+          cvFile: cvMeta,
+          cvBase64,
+        }),
       });
       const data = await res.json();
       if (!res.ok || !data.ok) {
@@ -1154,13 +1314,13 @@ export const GeneralContactForm: React.FC<{ onNavigate?: (path: string) => void 
       <div
         role="status"
         aria-live="polite"
-        className="p-8 bg-white border-2 border-[#1E3A8A] rounded-sm space-y-4"
+        className="p-8 md:p-12 bg-white border border-[#DCE1E9] shadow-sm space-y-5"
       >
         <div className="flex items-start gap-3">
-          <CheckCircle2 className="w-6 h-6 text-[#1E3A8A] shrink-0 mt-0.5" aria-hidden="true" />
+          <CheckCircle2 className="w-7 h-7 text-[#0E6482] shrink-0 mt-0.5" aria-hidden="true" />
           <div className="space-y-2">
-            <h3 className="font-editorial text-2xl font-semibold text-[#0A1633]">
-              Enquiry Submitted
+            <h3 className="text-2xl font-normal text-[#0E6482]">
+              Thank You — Contact Inquiry Received
             </h3>
             <p className="text-sm md:text-base text-[#1E293B] leading-relaxed">
               {successData.message}
@@ -1176,10 +1336,11 @@ export const GeneralContactForm: React.FC<{ onNavigate?: (path: string) => void 
             setSuccessData(null);
             setSubject('');
             setMessage('');
+            setCaptchaVerified(false);
           }}
-          className="px-5 py-2.5 text-xs font-semibold text-[#F8FAFC] bg-[#1E3A8A] hover:bg-[#0F2350] rounded-sm transition-colors cursor-pointer"
+          className="px-8 py-3 text-xs font-bold uppercase tracking-[0.18em] text-white bg-[#0E6482] hover:bg-[#09485E] transition-colors cursor-pointer"
         >
-          Send Another Enquiry
+          Submit Another Inquiry
         </button>
       </div>
     );
@@ -1189,27 +1350,20 @@ export const GeneralContactForm: React.FC<{ onNavigate?: (path: string) => void 
     <form
       onSubmit={handleSubmit}
       noValidate
-      className="p-6 md:p-10 bg-white border border-[#CBD5E1] rounded-sm space-y-6"
+      data-testid="rma-five-step-contact-form"
+      className="bg-white px-6 sm:px-10 md:px-14 py-10 md:py-14 border border-[#E2E8F0] shadow-xs space-y-10 text-[#1E293B]"
     >
-      <div className="space-y-2 border-b border-[#CBD5E1] pb-5">
-        <h3 className="font-editorial text-2xl md:text-3xl font-semibold text-[#0A1633]">
-          Send Us an Enquiry
-        </h3>
-        <p className="text-sm text-[#475569] leading-relaxed">
-          Provide clear information below to help us understand the purpose of your enquiry and determine the appropriate next step.
-        </p>
-      </div>
-
       {serverError && (
         <div
           role="alert"
-          className="p-4 bg-[#0A1633] text-[#F8FAFC] border border-[#FACC15] rounded-sm flex items-start gap-3 text-sm"
+          className="p-4 bg-[#FEF2F2] text-[#991B1B] border border-[#FCA5A5] flex items-start gap-3 text-sm"
         >
-          <AlertCircle className="w-5 h-5 text-[#FDE047] shrink-0 mt-0.5" aria-hidden="true" />
+          <AlertCircle className="w-5 h-5 text-[#DC2626] shrink-0 mt-0.5" aria-hidden="true" />
           <span>{serverError}</span>
         </div>
       )}
 
+      {/* Honeypot */}
       <div className="hidden" aria-hidden="true">
         <label htmlFor="contact-hp">Leave blank</label>
         <input
@@ -1222,144 +1376,573 @@ export const GeneralContactForm: React.FC<{ onNavigate?: (path: string) => void 
         />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-        <div>
-          <label htmlFor="contact-full-name" className="block text-xs font-semibold text-[#1E293B] mb-1.5">
-            Full Name *
-          </label>
-          <input
-            id="contact-full-name"
-            type="text"
-            required
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            className="w-full px-3.5 py-2.5 text-sm bg-[#F8FAFC] border border-[#CBD5E1] rounded-sm focus:outline-none focus:border-[#1E3A8A]"
-            placeholder="Your full name"
-          />
-          {errors.fullName && <p className="mt-1 text-xs text-red-700">{errors.fullName}</p>}
+      {/* =================================================================== */}
+      {/* 1. Contact Information:                                             */}
+      {/* =================================================================== */}
+      <div className="space-y-6">
+        <div className="border-b border-[#E2E8F0] pb-4">
+          <h3 className="text-[24px] md:text-[26px] font-normal text-[#0A4B78] tracking-tight">
+            1. Contact Information:
+          </h3>
         </div>
 
-        <div>
-          <label htmlFor="contact-email" className="block text-xs font-semibold text-[#1E293B] mb-1.5">
-            Email Address *
+        {/* Name (Required) — First & Last */}
+        <div className="space-y-1.5">
+          <label className="block text-[14px] font-bold text-[#1E293B]">
+            Name <span className="text-[#C0392B] italic font-normal text-[13px]">(Required)</span>
           </label>
-          <input
-            id="contact-email"
-            type="email"
-            required
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full px-3.5 py-2.5 text-sm bg-[#F8FAFC] border border-[#CBD5E1] rounded-sm focus:outline-none focus:border-[#1E3A8A]"
-            placeholder="name@example.com"
-          />
-          {errors.email && <p className="mt-1 text-xs text-red-700">{errors.email}</p>}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <input
+                id="contact-first-name"
+                type="text"
+                required
+                aria-label="First Name"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              />
+              <span className="block mt-1 text-[13px] text-[#334155]">First</span>
+            </div>
+            <div>
+              <input
+                id="contact-last-name"
+                type="text"
+                required
+                aria-label="Last Name"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              />
+              <span className="block mt-1 text-[13px] text-[#334155]">Last</span>
+            </div>
+          </div>
+          {errors.fullName && <p className="text-xs text-[#C0392B] mt-1">{errors.fullName}</p>}
         </div>
 
-        <div>
-          <label htmlFor="contact-organization" className="block text-xs font-semibold text-[#1E293B] mb-1.5">
-            Organization (Optional)
+        {/* Email (Required) — Enter Email & Confirm Email */}
+        <div className="space-y-1.5">
+          <label className="block text-[14px] font-bold text-[#1E293B]">
+            Email <span className="text-[#C0392B] italic font-normal text-[13px]">(Required)</span>
           </label>
-          <input
-            id="contact-organization"
-            type="text"
-            value={organization}
-            onChange={(e) => setOrganization(e.target.value)}
-            className="w-full px-3.5 py-2.5 text-sm bg-[#F8FAFC] border border-[#CBD5E1] rounded-sm focus:outline-none focus:border-[#1E3A8A]"
-            placeholder="Company or institution"
-          />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <input
+                id="contact-email"
+                type="email"
+                required
+                aria-label="Enter Email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              />
+              <span className="block mt-1 text-[13px] text-[#334155]">Enter Email</span>
+            </div>
+            <div>
+              <input
+                id="contact-confirm-email"
+                type="email"
+                required
+                aria-label="Confirm Email"
+                value={confirmEmail}
+                onChange={(e) => setConfirmEmail(e.target.value)}
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              />
+              <span className="block mt-1 text-[13px] text-[#334155]">Confirm Email</span>
+            </div>
+          </div>
+          {errors.email && <p className="text-xs text-[#C0392B] mt-1">{errors.email}</p>}
+          {errors.confirmEmail && (
+            <p className="text-xs text-[#C0392B] mt-1">{errors.confirmEmail}</p>
+          )}
         </div>
 
-        <div>
-          <label htmlFor="contact-type" className="block text-xs font-semibold text-[#1E293B] mb-1.5">
-            Enquiry Type *
+        {/* Mobile Phone & Work Phone */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div>
+            <label
+              htmlFor="contact-mobile-phone"
+              className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+            >
+              Mobile Phone
+            </label>
+            <input
+              id="contact-mobile-phone"
+              type="tel"
+              value={mobilePhone}
+              onChange={(e) => setMobilePhone(e.target.value)}
+              placeholder="(999) 999-9999"
+              className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] placeholder:text-[#64748B] focus:outline-none focus:border-[#0A4B78]"
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="contact-work-phone"
+              className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+            >
+              Work Phone
+            </label>
+            <input
+              id="contact-work-phone"
+              type="tel"
+              value={workPhone}
+              onChange={(e) => setWorkPhone(e.target.value)}
+              placeholder="(999) 999-9999"
+              className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] placeholder:text-[#64748B] focus:outline-none focus:border-[#0A4B78]"
+            />
+          </div>
+        </div>
+      </div>
+
+      {/* =================================================================== */}
+      {/* 2. Client Type:                                                     */}
+      {/* =================================================================== */}
+      <div className="space-y-5">
+        <div className="border-b border-[#E2E8F0] pb-4">
+          <h3 className="text-[24px] md:text-[26px] font-normal text-[#0A4B78] tracking-tight">
+            2. Client Type:
+          </h3>
+        </div>
+
+        <fieldset className="space-y-2.5">
+          <legend className="text-[14px] font-bold text-[#1E293B] mb-2">
+            Are you an Employer or are you a Job Seeker?{' '}
+            <span className="text-[#C0392B] italic font-normal text-[13px]">(Required)</span>
+          </legend>
+
+          <label className="flex items-center gap-2.5 text-[14px] text-[#1E293B] cursor-pointer">
+            <input
+              type="radio"
+              name="clientType"
+              value="Employer"
+              checked={clientType === 'Employer'}
+              onChange={() => setClientType('Employer')}
+              className="w-4 h-4 accent-[#0066CC] cursor-pointer"
+            />
+            <span>Employer</span>
           </label>
-          <select
-            id="contact-type"
-            required
-            value={enquiryType}
-            onChange={(e) => setEnquiryType(e.target.value)}
-            className="w-full px-3.5 py-2.5 text-sm bg-[#F8FAFC] border border-[#CBD5E1] rounded-sm focus:outline-none focus:border-[#1E3A8A]"
+
+          <label className="flex items-center gap-2.5 text-[14px] text-[#1E293B] cursor-pointer">
+            <input
+              type="radio"
+              name="clientType"
+              value="Job Seeker"
+              checked={clientType === 'Job Seeker'}
+              onChange={() => setClientType('Job Seeker')}
+              className="w-4 h-4 accent-[#0066CC] cursor-pointer"
+            />
+            <span>Job Seeker</span>
+          </label>
+        </fieldset>
+      </div>
+
+      {/* =================================================================== */}
+      {/* 3. Company Information (Employer) OR Candidate Information          */}
+      {/* =================================================================== */}
+      {clientType === 'Employer' ? (
+        <div className="space-y-5" data-testid="employer-company-info-section">
+          <div className="border-b border-[#E2E8F0] pb-4">
+            <h3 className="text-[24px] md:text-[26px] font-normal text-[#0A4B78] tracking-tight">
+              3. Company Information:
+            </h3>
+          </div>
+
+          <div className="space-y-4">
+            <div className="w-full md:w-7/12">
+              <label
+                htmlFor="emp-position-title"
+                className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+              >
+                Your Position / Title:
+              </label>
+              <input
+                id="emp-position-title"
+                type="text"
+                value={positionTitle}
+                onChange={(e) => setPositionTitle(e.target.value)}
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              />
+            </div>
+
+            <div className="w-full md:w-7/12">
+              <label
+                htmlFor="emp-company-name"
+                className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+              >
+                Company Name:
+              </label>
+              <input
+                id="emp-company-name"
+                type="text"
+                value={companyName}
+                onChange={(e) => setCompanyName(e.target.value)}
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              />
+            </div>
+
+            <div className="w-full md:w-7/12">
+              <label
+                htmlFor="emp-industry"
+                className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+              >
+                Industry:
+              </label>
+              <input
+                id="emp-industry"
+                type="text"
+                value={industry}
+                onChange={(e) => setIndustry(e.target.value)}
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              />
+            </div>
+
+            <div className="w-full md:w-7/12">
+              <label
+                htmlFor="emp-organization-type"
+                className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+              >
+                Organization Type:
+              </label>
+              <select
+                id="emp-organization-type"
+                value={organizationType}
+                onChange={(e) => setOrganizationType(e.target.value)}
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              >
+                {RMA_ORGANIZATION_TYPES.map((orgType) => (
+                  <option key={orgType} value={orgType}>
+                    {orgType}
+                  </option>
+                ))}
+              </select>
+            </div>
+
+            <div className="w-full md:w-7/12">
+              <label
+                htmlFor="emp-other-org"
+                className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+              >
+                Other:
+              </label>
+              <input
+                id="emp-other-org"
+                type="text"
+                value={otherOrganizationType}
+                onChange={(e) => setOtherOrganizationType(e.target.value)}
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              />
+            </div>
+          </div>
+        </div>
+      ) : (
+        <div className="space-y-5" data-testid="jobseeker-profile-info-section">
+          <div className="border-b border-[#E2E8F0] pb-4 flex flex-wrap items-center justify-between gap-2">
+            <h3 className="text-[24px] md:text-[26px] font-normal text-[#0A4B78] tracking-tight">
+              3. Job Seeker / Candidate Profile (Résumé Optional):
+            </h3>
+            <span className="px-3 py-1 text-xs font-bold text-[#0A4B78] bg-[#F0F7FF] border border-[#BAE6FD]">
+              Confidential Candidate Track · CV Optional
+            </span>
+          </div>
+
+          <div className="p-5 bg-[#F8FAFC] border border-[#DCE1E9] space-y-4">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label
+                  htmlFor="js-current-title"
+                  className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+                >
+                  Current or Most Recent Executive Title:
+                </label>
+                <input
+                  id="js-current-title"
+                  type="text"
+                  value={candidateCurrentTitle}
+                  onChange={(e) => setCandidateCurrentTitle(e.target.value)}
+                  placeholder="e.g., Chief Operating Officer, VP of Clinical Operations"
+                  className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="js-target-level"
+                  className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+                >
+                  Target Executive Level:
+                </label>
+                <select
+                  id="js-target-level"
+                  value={candidateTargetLevel}
+                  onChange={(e) => setCandidateTargetLevel(e.target.value)}
+                  className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+                >
+                  <option value="Board of Directors / Advisory Board">
+                    Board of Directors / Advisory Board
+                  </option>
+                  <option value="CEO / President / General Manager">
+                    CEO / President / General Manager
+                  </option>
+                  <option value="C-Suite / Executive Leadership (CEO, COO, CFO, CTO, CMO)">
+                    C-Suite / Executive Leadership (COO, CFO, CTO, CMO, CHRO)
+                  </option>
+                  <option value="EVP / SVP / Vice President">EVP / SVP / Vice President</option>
+                  <option value="Senior Director / Functional Head">
+                    Senior Director / Functional Head
+                  </option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="js-specialization"
+                  className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+                >
+                  Industry &amp; Functional Specialization:
+                </label>
+                <input
+                  id="js-specialization"
+                  type="text"
+                  value={candidateSpecialization}
+                  onChange={(e) => setCandidateSpecialization(e.target.value)}
+                  placeholder="e.g., Biopharma, Medical Devices, Enterprise SaaS, Private Equity"
+                  className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+                />
+              </div>
+
+              <div>
+                <label
+                  htmlFor="js-location"
+                  className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+                >
+                  Preferred U.S. Location / Work Arrangement:
+                </label>
+                <input
+                  id="js-location"
+                  type="text"
+                  value={candidatePreferredLocation}
+                  onChange={(e) => setCandidatePreferredLocation(e.target.value)}
+                  placeholder="e.g., Boston, New York, Nationwide Hybrid / Remote"
+                  className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+                />
+              </div>
+            </div>
+
+            <div className="w-full md:w-7/12">
+              <label
+                htmlFor="js-linkedin"
+                className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+              >
+                LinkedIn Profile URL (Optional):
+              </label>
+              <input
+                id="js-linkedin"
+                type="url"
+                value={candidateLinkedIn}
+                onChange={(e) => setCandidateLinkedIn(e.target.value)}
+                placeholder="https://www.linkedin.com/in/your-profile"
+                className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
+              />
+            </div>
+
+            {/* Optional Résumé / CV Upload for Job Seekers */}
+            <div className="p-4 bg-white border border-dashed border-[#0A4B78] space-y-2">
+              <label
+                htmlFor="js-optional-cv"
+                className="block text-[14px] font-bold text-[#0A4B78]"
+              >
+                Optional Résumé / CV Upload (PDF, DOC, DOCX — Completely Optional for Job Seekers)
+              </label>
+              <p className="text-xs text-[#475569]">
+                You may submit this form with or without attaching a résumé. Any uploaded CV is stored privately.
+              </p>
+              <div className="flex flex-wrap items-center gap-3 pt-1">
+                <label
+                  htmlFor="js-optional-cv"
+                  className="inline-flex items-center gap-2 px-4 py-2 text-xs font-bold uppercase tracking-wider text-white bg-[#0E6482] hover:bg-[#09485E] cursor-pointer transition-colors"
+                >
+                  <Upload className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span>Choose Optional Résumé File</span>
+                </label>
+                <input
+                  id="js-optional-cv"
+                  type="file"
+                  accept=".pdf,.doc,.docx,application/pdf,application/msword,application/vnd.openxmlformats-officedocument.wordprocessingml.document"
+                  onChange={handleCvFileChange}
+                  className="sr-only"
+                />
+                <span className="text-xs text-[#334155]">
+                  {cvMeta
+                    ? `${cvMeta.fileName} (${(cvMeta.sizeBytes / 1024).toFixed(1)} KB)`
+                    : 'No file selected (Résumé is optional)'}
+                </span>
+              </div>
+              {errors.cvFile && <p className="text-xs text-[#C0392B]">{errors.cvFile}</p>}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* =================================================================== */}
+      {/* 4. Subject & Message:                                               */}
+      {/* =================================================================== */}
+      <div className="space-y-5">
+        <div className="border-b border-[#E2E8F0] pb-4">
+          <h3 className="text-[24px] md:text-[26px] font-normal text-[#0A4B78] tracking-tight">
+            4. Subject &amp; Message:
+          </h3>
+        </div>
+
+        <div className="w-full md:w-7/12">
+          <label
+            htmlFor="contact-subject"
+            className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
           >
-            <option value="">Select Enquiry Type</option>
-            <option value="Employer Search Enquiry">Employer / Hiring Enquiry</option>
-            <option value="Candidate Introduction">Candidate Career Introduction</option>
-            <option value="Talent Mapping & Advisory">Talent Mapping &amp; Market Intelligence</option>
-            <option value="General & Privacy Enquiry">General / Privacy Enquiry</option>
-          </select>
-          {errors.enquiryType && <p className="mt-1 text-xs text-red-700">{errors.enquiryType}</p>}
-        </div>
-
-        <div className="md:col-span-2">
-          <label htmlFor="contact-subject" className="block text-xs font-semibold text-[#1E293B] mb-1.5">
-            Subject *
+            Subject:
           </label>
           <input
             id="contact-subject"
             type="text"
-            required
             value={subject}
             onChange={(e) => setSubject(e.target.value)}
-            className="w-full px-3.5 py-2.5 text-sm bg-[#F8FAFC] border border-[#CBD5E1] rounded-sm focus:outline-none focus:border-[#1E3A8A]"
-            placeholder="Brief subject of your enquiry"
+            className="w-full h-[42px] px-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
           />
-          {errors.subject && <p className="mt-1 text-xs text-red-700">{errors.subject}</p>}
+          {errors.subject && <p className="mt-1 text-xs text-[#C0392B]">{errors.subject}</p>}
         </div>
 
-        <div className="md:col-span-2">
-          <label htmlFor="contact-message" className="block text-xs font-semibold text-[#1E293B] mb-1.5">
-            Message *
+        <div>
+          <label
+            htmlFor="contact-message"
+            className="block text-[14px] font-bold text-[#1E293B] mb-1.5"
+          >
+            Message
           </label>
           <textarea
             id="contact-message"
-            rows={4}
-            required
+            rows={10}
             value={message}
             onChange={(e) => setMessage(e.target.value)}
-            className="w-full px-3.5 py-2.5 text-sm bg-[#F8FAFC] border border-[#CBD5E1] rounded-sm focus:outline-none focus:border-[#1E3A8A]"
-            placeholder="How can Alexanders Career Strategy assist you?"
+            className="w-full p-3 text-sm bg-white border border-[#D1D5DB] focus:outline-none focus:border-[#0A4B78]"
           />
-          {errors.message && <p className="mt-1 text-xs text-red-700">{errors.message}</p>}
+          {errors.message && <p className="mt-1 text-xs text-[#C0392B]">{errors.message}</p>}
         </div>
       </div>
 
-      <div className="pt-1">
-        <label className="flex items-start gap-3 cursor-pointer">
-          <input
-            type="checkbox"
-            checked={privacyAccepted}
-            onChange={(e) => setPrivacyAccepted(e.target.checked)}
-            className="mt-1 w-4 h-4 accent-[#1E3A8A]"
-          />
-          <span className="text-xs text-[#475569] leading-relaxed">
-            I acknowledge the{' '}
+      {/* =================================================================== */}
+      {/* 5. Contact Authorization:                                           */}
+      {/* =================================================================== */}
+      <div className="space-y-5">
+        <div className="border-b border-[#E2E8F0] pb-4">
+          <h3 className="text-[24px] md:text-[26px] font-normal text-[#0A4B78] tracking-tight">
+            5. Contact Authorization:
+          </h3>
+        </div>
+
+        <div className="space-y-3">
+          <label className="flex items-start gap-2.5 cursor-pointer">
+            <input
+              id="contact-authorization-checkbox"
+              type="checkbox"
+              checked={consentAccepted}
+              onChange={(e) => setConsentAccepted(e.target.checked)}
+              className="mt-1 w-4 h-4 accent-[#0A4B78] cursor-pointer"
+            />
+            <span className="text-[14px] text-[#334155]">
+              Consent to receiving Emails, Phone Calls, Text Messages &amp; Other Types of Messages.
+            </span>
+          </label>
+
+          {/* Bordered Disclosure Box Matching Screenshot (265).png */}
+          <div className="p-4 bg-[#FAFBFD] border border-[#DCE1E9] text-[13px] text-[#4A5568] leading-relaxed">
+            By checking this box, and submitting the form, I confirm that I am the authorized user
+            of the email address, the subscriber and primary owner of the phone number entered, and
+            I hereby consent to receive emails, calls, and/or text messages, and/or other types of
+            messages from Alexanders Career Strategy and the employees who work at Alexanders Career
+            Strategy, including using automated call technology or recorded calls, at the phone
+            number provided above, including if this number is a wireless or mobile phone number.{' '}
+            {onNavigate && (
+              <button
+                type="button"
+                onClick={() => onNavigate('/privacy')}
+                className="text-[#0A4B78] underline hover:text-[#082F49] cursor-pointer"
+              >
+                Privacy Policy
+              </button>
+            )}
+          </div>
+          {errors.privacyAccepted && (
+            <p className="text-xs text-[#C0392B]">{errors.privacyAccepted}</p>
+          )}
+        </div>
+
+        {/* CAPTCHA Widget Matching Screenshot (265).png */}
+        <div className="space-y-2 pt-2">
+          <span className="block text-[14px] font-bold text-[#1E293B]">CAPTCHA</span>
+          <div
+            role="group"
+            aria-label="CAPTCHA Verification"
+            className="w-full max-w-[304px] h-[78px] bg-[#F9F9F9] border border-[#D3D3D3] rounded-[3px] shadow-2xs px-3.5 flex items-center justify-between select-none"
+          >
             <button
               type="button"
-              onClick={() => onNavigate?.('/privacy')}
-              className="text-[#1E3A8A] underline font-medium cursor-pointer"
+              onClick={handleCaptchaToggle}
+              aria-pressed={captchaVerified}
+              data-testid="recaptcha-checkbox-btn"
+              className="flex items-center gap-3 cursor-pointer text-left focus:outline-none"
             >
-              Privacy Policy
-            </button>{' '}
-            and consent to the processing of my enquiry. *
-          </span>
-        </label>
-        {errors.privacyAccepted && (
-          <p className="mt-1 text-xs text-red-700">{errors.privacyAccepted}</p>
-        )}
-      </div>
+              <span
+                className={`w-[28px] h-[28px] rounded-[2px] border-2 flex items-center justify-center transition-colors ${
+                  captchaVerified
+                    ? 'border-[#16A34A] bg-white text-[#16A34A]'
+                    : 'border-[#C1C1C1] bg-white hover:border-[#888888]'
+                }`}
+              >
+                {captchaChecking ? (
+                  <Loader2 className="w-4 h-4 animate-spin text-[#0E6482]" />
+                ) : captchaVerified ? (
+                  <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                ) : null}
+              </span>
+              <span className="text-[14px] font-normal text-[#222222]">I&apos;m not a robot</span>
+            </button>
 
-      <div>
-        <button
-          type="submit"
-          disabled={submitting}
-          className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-[#F8FAFC] bg-[#1E3A8A] hover:bg-[#0F2350] disabled:opacity-60 rounded-sm transition-colors cursor-pointer"
-        >
-          {submitting && <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />}
-          <span>{submitting ? 'Sending...' : 'Send Enquiry'}</span>
-        </button>
+            <div className="flex flex-col items-center justify-center text-center leading-tight">
+              <svg className="w-8 h-8" viewBox="0 0 64 64" aria-hidden="true">
+                <path
+                  fill="#1C3AA9"
+                  d="M32 10c8.5 0 15.8 4.8 19.5 11.9l4.5-4.5V32H41.4l5.3-5.3C43.9 21.3 38.4 17.5 32 17.5c-7.4 0-13.7 4.9-15.8 11.7l-7.1-2.2C12.2 17.1 21.3 10 32 10z"
+                />
+                <path
+                  fill="#4285F4"
+                  d="M54 32c0 12.2-9.8 22-22 22-8.5 0-15.8-4.8-19.5-11.9L8 46.6V32h14.6l-5.3 5.3c2.8 5.4 8.3 9.2 14.7 9.2 7.4 0 13.7-4.9 15.8-11.7L54 32z"
+                />
+              </svg>
+              <span className="text-[10px] font-semibold text-[#555555] mt-0.5">reCAPTCHA</span>
+              <span className="text-[8px] text-[#777777]">Privacy - Terms</span>
+            </div>
+          </div>
+          {errors.captcha && <p className="text-xs text-[#C0392B]">{errors.captcha}</p>}
+        </div>
+
+        {/* Solid Teal-Blue SUBMIT Button Matching Screenshot (265).png */}
+        <div className="pt-3">
+          <button
+            type="submit"
+            disabled={submitting}
+            data-testid="contact-submit-btn"
+            className="inline-flex items-center justify-center gap-2 px-10 py-3.5 min-w-[165px] text-[13px] font-bold uppercase tracking-[0.18em] text-white bg-[#136382] hover:bg-[#0D4A63] disabled:opacity-60 transition-colors cursor-pointer"
+          >
+            {submitting && <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />}
+            <span>{submitting ? 'SUBMITTING...' : 'SUBMIT'}</span>
+          </button>
+        </div>
       </div>
     </form>
   );
 };
+
 
 // ============================================================================
 // 4. CAREERS AT ALEXANDERS CAREER STRATEGY INTEREST FORM

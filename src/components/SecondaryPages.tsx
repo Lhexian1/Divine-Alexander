@@ -1173,21 +1173,34 @@ export const InsightsPage: React.FC<{
 };
 
 // ============================================================================
-// 5. CONTACT PAGE (Sections 12 & 19.9)
+// 5. CONTACT PAGE (Matches https://rmasearchfirm.com/contact & Screenshots 263–265)
 // ============================================================================
 export const ContactPage: React.FC<PageNavProps> = ({ onNavigate }) => {
   const { getPageConfig } = useSiteContent();
   const pageConfig = getPageConfig('/contact');
+  const [subMenuOpen, setSubMenuOpen] = useState(false);
 
   const handleLink = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     e.preventDefault();
     onNavigate(path);
   };
 
+  const rmaSubNavItems = [
+    { label: 'About Alexanders', target: '/about' },
+    { label: 'Philosophy', target: '/our-approach-to-executive-search' },
+    { label: 'Culture, Mission & Vision', target: '/about' },
+    { label: 'Alexanders FAQs', target: '/candidates#candidate-faq' },
+    { label: 'Contact Alexanders™', target: '/contact' },
+  ];
+
   return (
-    <div className="bg-[#F8FAFC]/82">
-      {/* Contact Hero Banner with Full-Bleed Background Photograph */}
-      <section className="relative overflow-hidden bg-[#0F2350] text-[#F8FAFC] py-14 md:py-20 border-b border-[#FACC15]/30">
+    <div className="bg-[#EEF1F6]/90">
+      {/* =================================================================== */}
+      {/* RMA /CONTACT HERO BANNER + ATTACHED SUB-NAVIGATION BAR              */}
+      {/* Matches Screenshot (263).png & https://rmasearchfirm.com/contact    */}
+      {/* =================================================================== */}
+      <section className="relative overflow-hidden bg-[#161936] text-white">
+        {/* Background Executive Handshake / Consultation Image */}
         <img
           src={
             pageConfig?.heroImage && !pageConfig.heroImage.endsWith('.svg')
@@ -1195,199 +1208,212 @@ export const ContactPage: React.FC<PageNavProps> = ({ onNavigate }) => {
               : '/src/assets/images/regenerated_image_1793298524657.jpg'
           }
           alt="Contact Alexanders Career Strategy"
-          className="absolute inset-0 w-full h-full object-cover object-center"
+          className="absolute inset-0 w-full h-full object-cover object-center opacity-35"
         />
         <div
-          className="absolute inset-0 bg-gradient-to-r from-[#0F2350]/90 via-[#0F2350]/82 to-[#1E3A8A]/78"
+          className="absolute inset-0 bg-gradient-to-r from-[#141733]/92 via-[#191D3D]/86 to-[#1E2448]/82"
           aria-hidden="true"
         />
-        <div className="relative z-10 max-w-[1280px] mx-auto px-4 sm:px-6 space-y-4">
-          {/* Breadcrumb: Home » Contact */}
-          <nav
-            aria-label="Breadcrumb"
-            className="flex items-center gap-2 text-xs font-extrabold uppercase tracking-wider text-[#FDE047]"
-          >
-            <a
-              href="/"
-              onClick={(e) => handleLink(e, '/')}
-              className="hover:underline underline-offset-4"
-            >
-              Home
-            </a>
-            <span aria-hidden="true">»</span>
-            <span className="text-white">Contact</span>
-          </nav>
 
-          <p className="text-xs font-semibold tracking-wider text-[#FDE047]">
-            {pageConfig?.heroKicker ||
-              'ALEXANDERS CAREER STRATEGY™ – EXECUTIVE SEARCH & RECRUITING CONSULTANTS'}
-          </p>
-          <h1 className="font-editorial text-4xl md:text-5xl font-semibold text-[#F8FAFC]">
-            {pageConfig?.heroHeading || 'Contact Alexanders Career Strategy™'}
-          </h1>
-          <p className="text-base md:text-lg text-[#F8FAFC]/85 max-w-3xl leading-relaxed">
-            {pageConfig?.heroText ||
-              'Executive candidate search solutions and consultation from Alexanders Career Strategy™ allow enterprises, organizations, and senior leaders across the United States to make better, more successful executive hiring and career decisions.'}
-          </p>
+        {/* Main Hero Content Area */}
+        <div className="relative z-10 max-w-[1280px] mx-auto px-6 sm:px-10 pt-14 pb-12 md:pt-20 md:pb-16 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div className="relative space-y-3 max-w-2xl">
+            {/* Large Translucent Watermark Text: Contact Alexanders™: */}
+            <p
+              aria-hidden="true"
+              className="text-4xl sm:text-6xl md:text-[64px] font-normal tracking-tight text-white/15 select-none leading-none"
+            >
+              Contact Alexanders™:
+            </p>
+            <h1 className="text-2xl sm:text-3xl md:text-[32px] font-normal text-[#4B6A9B] tracking-tight">
+              {pageConfig?.heroHeading || 'Contact Alexanders Career Strategy™'}
+            </h1>
+            <p className="text-xs sm:text-sm text-white/75 max-w-xl leading-relaxed">
+              {pageConfig?.heroText ||
+                'Executive candidate search solutions and consultation from Alexanders Career Strategy™ allow enterprises and organizations across the United States to make better, more successful executive hiring decisions.'}
+            </p>
+          </div>
+
+          {/* Right Framed Executive Consultation Visual (Matches Screenshot 263) */}
+          <div className="hidden md:block w-[320px] lg:w-[360px] shrink-0 bg-white/95 p-2 shadow-2xl border border-white/40">
+            <img
+              src="/src/assets/images/regenerated_image_1793268848419.jpg"
+              alt="Executive search consultants discussing leadership strategy"
+              className="w-full h-[210px] object-cover object-center"
+            />
+          </div>
+        </div>
+
+        {/* Attached Dark-Navy Sub-Navigation Bar (Matches Screenshot 263) */}
+        <div className="relative z-10 bg-[#050C24] border-t border-white/10">
+          <div className="max-w-[1280px] mx-auto px-6 sm:px-10 min-h-[54px] flex items-center justify-between gap-4">
+            <p className="text-sm sm:text-base md:text-[18px] font-normal text-[#64748B] tracking-tight truncate">
+              Alexanders Career Strategy™ – Preferred Executive Search &amp; Recruiting Consultants
+            </p>
+
+            <button
+              type="button"
+              onClick={() => setSubMenuOpen((prev) => !prev)}
+              aria-expanded={subMenuOpen}
+              aria-label="Toggle Contact Sub-Navigation Menu"
+              data-testid="contact-hero-submenu-toggle"
+              className="w-12 h-[54px] bg-[#3B3E52] hover:bg-[#4E526B] text-[#0A1024] flex items-center justify-center shrink-0 transition-colors cursor-pointer"
+            >
+              <svg className="w-5 h-5 text-[#081026]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+              </svg>
+            </button>
+          </div>
+
+          {/* Expandable Sub-Navigation Links */}
+          {subMenuOpen && (
+            <div className="bg-[#0B1536] border-t border-white/10">
+              <div className="max-w-[1280px] mx-auto px-6 sm:px-10 py-3 flex flex-wrap items-center gap-x-8 gap-y-2">
+                {rmaSubNavItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.target}
+                    onClick={(e) => {
+                      setSubMenuOpen(false);
+                      handleLink(e, item.target);
+                    }}
+                    className="text-xs sm:text-sm font-medium text-[#CBD5E1] hover:text-white py-1 transition-colors"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Lower Slate Framing Band (Matches Screenshot 263) */}
+        <div className="relative z-10 h-8 bg-[#3B3E52]" aria-hidden="true" />
+      </section>
+
+      {/* =================================================================== */}
+      {/* CENTERED 5-STEP NUMBERED CONTACT FORM                               */}
+      {/* Matches Screenshot (263), Screenshot (264), Screenshot (265)        */}
+      {/* =================================================================== */}
+      <section id="direct-contact-form" className="py-8 md:py-12 px-4 sm:px-6">
+        <div className="max-w-[920px] mx-auto">
+          <GeneralContactForm onNavigate={onNavigate} />
         </div>
       </section>
 
-      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 py-12 md:py-16 space-y-16">
-        {/* Two Clearly Separated Pathways (Section 12) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <div className="p-6 sm:p-8 bg-white border border-[#CBD5E1] rounded-sm space-y-4 shadow-sm">
-            <p className="text-xs font-semibold tracking-wider text-[#0E6482]">
-              Pathway 01 · For Employers &amp; Hiring Managers
+      {/* =================================================================== */}
+      {/* FULL RMA /CONTACT VALUE, SOLUTIONS, CATEGORIES & INSIGHTS SECTIONS  */}
+      {/* =================================================================== */}
+      <div className="max-w-[1280px] mx-auto px-4 sm:px-6 pb-16 md:pb-24 space-y-16">
+        <ExecutiveValueShowcase onNavigate={onNavigate} />
+
+        {/* U.S. Regional & State Search Coverage + Senior Consultant Routing (No Visible Emails) */}
+        <section className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          <div
+            id="us-regional-locations"
+            className="lg:col-span-7 p-7 sm:p-9 bg-white border border-[#DCE1E9] space-y-4 shadow-xs"
+          >
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#136382]">
+              UNITED STATES EXECUTIVE SEARCH FIRM · LOCATIONS
             </p>
-            <h2 className="font-editorial text-2xl sm:text-3xl font-semibold text-[#0A1633]">
-              Tell us about the position you’re looking to fill.
+            <h2 className="font-editorial text-2xl sm:text-3xl font-normal text-[#0A4B78]">
+              U.S. Regional Locations &amp; U.S. States &amp; Cities Coverage
             </h2>
-            <p className="text-sm text-[#475569] leading-relaxed">
-              For recruitment enquiries, include the position, industry, location, seniority, and key experience required. Proceed to our dedicated Employer Hiring Enquiry form.
+            <p id="us-states-cities" className="text-sm text-[#334155] leading-relaxed">
+              From coast to coast, our executive search consultants are available to help your
+              organization compete for the nation’s best executive talent across major U.S.
+              commercial, clinical, financial, and technology hubs:
             </p>
-            <a
-              href="/employers#enquiry-form"
-              onClick={(e) => handleLink(e, '/employers#enquiry-form')}
-              className="inline-block px-6 py-3 text-xs md:text-sm font-bold uppercase tracking-widest text-white bg-[#0E6482] hover:bg-[#082F49] rounded-xs transition-colors"
-            >
-              Open Employer Enquiry Form
-            </a>
-          </div>
-
-          <div className="p-6 sm:p-8 bg-white border border-[#CBD5E1] rounded-sm space-y-4 shadow-sm">
-            <p className="text-xs font-semibold tracking-wider text-[#0E6482]">
-              Pathway 02 · For Executive Candidates (Résumé Optional)
-            </p>
-            <h2 className="font-editorial text-2xl sm:text-3xl font-semibold text-[#0A1633]">
-              Introduce yourself and your professional interests.
-            </h2>
-            <p className="text-sm text-[#475569] leading-relaxed">
-              For candidate enquiries, provide your professional background, target roles, and optional private CV upload through our Candidate Registration workflow.
-            </p>
-            <a
-              href="/candidates#cv-form"
-              onClick={(e) => handleLink(e, '/candidates#cv-form')}
-              className="inline-block px-6 py-3 text-xs md:text-sm font-bold uppercase tracking-widest text-[#082F49] bg-[#FEF08A] hover:bg-[#FDE047] border border-[#38BDF8] rounded-xs transition-colors"
-            >
-              Open Candidate Registration
-            </a>
-          </div>
-        </div>
-
-        {/* General Contact Form (Screenshots 3 & 4 Numbered Layout) + Team Contact Directory (No Visible Emails) */}
-        <div id="direct-contact-form" className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
-          <div className="lg:col-span-8">
-            <GeneralContactForm onNavigate={onNavigate} />
-          </div>
-
-          <aside className="lg:col-span-4 space-y-6">
-            <div className="p-6 bg-[#0F2350] text-[#F8FAFC] border border-[#FACC15]/30 rounded-sm space-y-4">
-              <h3 className="font-editorial text-2xl font-semibold text-[#FDE047]">
-                Executive Search Consultants
-              </h3>
-              <p className="text-xs text-[#F8FAFC]/80 leading-relaxed">
-                All enquiries submitted through our contact forms are routed directly and confidentially to our senior search consultants:
+            <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-2.5 text-xs font-semibold text-[#0A4B78] pt-1">
+              <li className="p-2.5 bg-[#F8FAFC] border border-[#E2E8F0]">• Northeast &amp; Boston</li>
+              <li className="p-2.5 bg-[#F8FAFC] border border-[#E2E8F0]">• New York Tri-State</li>
+              <li className="p-2.5 bg-[#F8FAFC] border border-[#E2E8F0]">• Mid-Atlantic &amp; D.C.</li>
+              <li className="p-2.5 bg-[#F8FAFC] border border-[#E2E8F0]">• Southeast &amp; Research Triangle</li>
+              <li className="p-2.5 bg-[#F8FAFC] border border-[#E2E8F0]">• Midwest &amp; Chicago</li>
+              <li className="p-2.5 bg-[#F8FAFC] border border-[#E2E8F0]">• Texas &amp; Southwest</li>
+              <li className="p-2.5 bg-[#F8FAFC] border border-[#E2E8F0]">• California &amp; Bay Area</li>
+              <li className="p-2.5 bg-[#F8FAFC] border border-[#E2E8F0]">• Pacific Northwest</li>
+            </ul>
+            <div className="pt-3 border-t border-[#E2E8F0] flex flex-wrap items-center justify-between gap-4">
+              <p id="global-search-locations" className="text-xs text-[#475569]">
+                Dedicated employer hiring mandate briefs and confidential candidate registrations are
+                also available:
               </p>
-              <ul className="space-y-3 text-xs">
-                <li className="border-b border-[#FACC15]/20 pb-2.5 flex items-center justify-between gap-2">
-                  <div>
-                    <p className="font-semibold text-[#F8FAFC]">Alexander Divine</p>
-                    <p className="text-[11px] text-[#E0F2FE]/80">Executive Search &amp; Talent Strategy</p>
-                  </div>
-                  <a
-                    href="#direct-contact-form"
-                    onClick={(e) => handleLink(e, '/contact#direct-contact-form')}
-                    className="px-2.5 py-1 text-[11px] font-bold text-[#082F49] bg-[#FEF08A] hover:bg-[#FDE047] rounded-xs"
-                  >
-                    Message
-                  </a>
-                </li>
-                <li className="border-b border-[#FACC15]/20 pb-2.5 flex items-center justify-between gap-2">
-                  <div>
-                    <p className="font-semibold text-[#F8FAFC]">Paul Alexander</p>
-                    <p className="text-[11px] text-[#E0F2FE]/80">Recruitment Coordination &amp; Candidate Relations</p>
-                  </div>
-                  <a
-                    href="#direct-contact-form"
-                    onClick={(e) => handleLink(e, '/contact#direct-contact-form')}
-                    className="px-2.5 py-1 text-[11px] font-bold text-[#082F49] bg-[#FEF08A] hover:bg-[#FDE047] rounded-xs"
-                  >
-                    Message
-                  </a>
-                </li>
-                <li className="border-b border-[#FACC15]/20 pb-2.5 flex items-center justify-between gap-2">
-                  <div>
-                    <p className="font-semibold text-[#F8FAFC]">Piers Fisher</p>
-                    <p className="text-[11px] text-[#E0F2FE]/80">Talent Research &amp; Executive Search</p>
-                  </div>
-                  <a
-                    href="#direct-contact-form"
-                    onClick={(e) => handleLink(e, '/contact#direct-contact-form')}
-                    className="px-2.5 py-1 text-[11px] font-bold text-[#082F49] bg-[#FEF08A] hover:bg-[#FDE047] rounded-xs"
-                  >
-                    Message
-                  </a>
-                </li>
-                <li className="flex items-center justify-between gap-2">
-                  <div>
-                    <p className="font-semibold text-[#F8FAFC]">Fred Geerken</p>
-                    <p className="text-[11px] text-[#E0F2FE]/80">Professional Networking &amp; Engagement</p>
-                  </div>
-                  <a
-                    href="https://www.linkedin.com/in/fred-g-geerken-2a92b25/"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-[#FDE047] font-semibold hover:underline"
-                  >
-                    LinkedIn ↗
-                  </a>
-                </li>
-              </ul>
-              <div className="pt-2">
+              <div className="flex flex-wrap gap-3">
                 <a
-                  href="/team"
-                  onClick={(e) => handleLink(e, '/team')}
-                  className="text-xs font-semibold text-[#FDE047] hover:underline"
+                  href="/employers#enquiry-form"
+                  onClick={(e) => handleLink(e, '/employers#enquiry-form')}
+                  className="px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-white bg-[#136382] hover:bg-[#0B1633] transition-colors"
                 >
-                  View Full Meet Our Team Directory →
+                  Employer Mandate Brief
+                </a>
+                <a
+                  href="/candidates#cv-form"
+                  onClick={(e) => handleLink(e, '/candidates#cv-form')}
+                  className="px-4 py-2 text-xs font-bold uppercase tracking-[0.15em] text-[#0B1633] bg-[#F1F5F9] hover:bg-[#E2E8F0] border border-[#CBD5E1] transition-colors"
+                >
+                  Candidate Registration (CV Optional)
                 </a>
               </div>
             </div>
+          </div>
 
-            {/* U.S. Regional & State Coverage Card (Matches Screenshot 2 Sub-Links) */}
-            <div
-              id="us-regional-locations"
-              className="p-6 bg-white border border-[#7DD3FC] rounded-sm space-y-3 shadow-xs"
-            >
-              <h3 className="font-editorial text-xl font-bold text-[#082F49]">
-                U.S. Regional &amp; State Search Coverage
-              </h3>
-              <p id="us-states-cities" className="text-xs text-[#334155] leading-relaxed">
-                Alexanders Career Strategy conducts executive and specialist searches across major U.S. commercial, clinical, financial, and technology hubs:
-              </p>
-              <ul className="grid grid-cols-2 gap-1.5 text-xs font-semibold text-[#0E6482]">
-                <li>• Northeast &amp; Boston</li>
-                <li>• New York Tri-State</li>
-                <li>• Mid-Atlantic &amp; D.C.</li>
-                <li>• Southeast &amp; Research Triangle</li>
-                <li>• Midwest &amp; Chicago</li>
-                <li>• Texas &amp; Southwest</li>
-                <li>• California &amp; Bay Area</li>
-                <li>• Pacific Northwest</li>
-              </ul>
-              <p id="global-search-locations" className="text-[11px] text-[#475569] pt-2 border-t border-[#E0F2FE]">
-                Cross-border &amp; North American executive search mandates supported upon client consultation.
-              </p>
-            </div>
-          </aside>
-        </div>
-
-        {/* Full Executive Value & Capabilities Arrangement (Inspired by RMA Contact & Value Architecture) */}
-        <ExecutiveValueShowcase onNavigate={onNavigate} />
+          <div className="lg:col-span-5 p-7 sm:p-9 bg-[#0B1633] text-white border border-[#1E3A8A] space-y-4">
+            <p className="text-xs font-bold uppercase tracking-[0.2em] text-[#7DD3FC]">
+              SENIOR LEADERSHIP DIRECTORY
+            </p>
+            <h3 className="font-editorial text-2xl font-normal text-white">
+              Executive Search Consultants
+            </h3>
+            <p className="text-xs text-[#CBD5E1] leading-relaxed">
+              All inquiries submitted through the form above are routed directly and confidentially
+              to our senior search leadership team:
+            </p>
+            <ul className="space-y-3 text-xs">
+              {[
+                { name: 'Alexander Divine', role: 'Executive Search & Talent Strategy' },
+                { name: 'Paul Alexander', role: 'Recruitment Coordination & Candidate Relations' },
+                { name: 'Piers Fisher', role: 'Talent Research & Executive Search' },
+              ].map((consultant) => (
+                <li
+                  key={consultant.name}
+                  className="border-b border-white/15 pb-2.5 flex items-center justify-between gap-2"
+                >
+                  <div>
+                    <p className="font-semibold text-white">{consultant.name}</p>
+                    <p className="text-[11px] text-[#94A3B8]">{consultant.role}</p>
+                  </div>
+                  <a
+                    href="#direct-contact-form"
+                    onClick={(e) => handleLink(e, '/contact#direct-contact-form')}
+                    className="px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-white bg-[#136382] hover:bg-[#0E4B63]"
+                  >
+                    Message
+                  </a>
+                </li>
+              ))}
+              <li className="flex items-center justify-between gap-2 pt-1">
+                <div>
+                  <p className="font-semibold text-white">Fred Geerken</p>
+                  <p className="text-[11px] text-[#94A3B8]">Professional Networking &amp; Engagement</p>
+                </div>
+                <a
+                  href="https://www.linkedin.com/in/fred-g-geerken-2a92b25/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[#7DD3FC] font-semibold hover:underline"
+                >
+                  LinkedIn ↗
+                </a>
+              </li>
+            </ul>
+          </div>
+        </section>
       </div>
     </div>
   );
 };
+
 
 // ============================================================================
 // 6. PRIVACY POLICY & TERMS OF USE PAGES (Sections 19.10 & 19.11)
